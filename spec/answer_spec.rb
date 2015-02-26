@@ -13,21 +13,22 @@ describe "Answer" do
   it "has content" do
     expect(answer.content).to eq("Just buy a mac. You'll never have to worry about anything ever again.")
   end
-end
 
-describe "Validations" do
-  let(:steve) {User.new(username: "Steve Jobs", email: "kingsteve@gmail.com", password: "elegant")}
-  let(:answer) {Answer.new}
 
-  it "has an error if answer has no content" do
-    answer.author = steve
-    answer.valid?
-    expect(question.errors[:content]).to_not be_empty
-  end
+  describe "Validations" do
+    let(:steve) {User.new(username: "Steve Jobs", email: "kingsteve@gmail.com", password: "elegant")}
+    let(:answer) {Answer.new}
 
-  it "has an error if author is empty" do
-    answer.content = "Just buy a mac. You'll never have to worry about anything ever again."
-    answer.valid?
-    expect(question.error[:author]).to_not be_empty
+    it "has an error if answer has no content" do
+      answer.author = steve
+      answer.valid?
+      expect(answer.errors[:content]).to_not be_empty
+    end
+
+    it "has an error if author is empty" do
+      answer.content = "Just buy a mac. You'll never have to worry about anything ever again."
+      answer.valid?
+      expect(answer.errors[:author]).to_not be_empty
+    end
   end
 end
