@@ -9,7 +9,7 @@ describe Question do
   end
 end
 
-describe Validations do
+describe "Validations" do
   let(:bill) {User.new(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
   let(:question) {Question.new}
 
