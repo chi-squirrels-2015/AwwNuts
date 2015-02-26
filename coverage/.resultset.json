@@ -3,11 +3,15 @@
     "coverage": {
       "/Users/John/Desktop/AwwNuts/app/models/comment.rb": [
         1,
+        null,
+        1,
+        1,
+        null,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1424984400
+    "timestamp": 1424985240
   }
 }
