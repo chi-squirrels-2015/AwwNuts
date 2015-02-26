@@ -7,7 +7,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+<<<<<<< HEAD
       redirect_to dashboard_path, notice: "Welcome #{@user.first_name} to AwwNuts!"
+=======
+      redirect_to @user, notice: "Welcome #{@user.first_name} to AwwNuts! It's time to ask a <a href='#{new_question_path}'>question</a>."
+>>>>>>> add User model, controller, migration, and model spec
     else
       @error = @user.errors
       render :new

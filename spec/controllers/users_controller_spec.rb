@@ -37,7 +37,7 @@ describe UsersController do
 
       it "re-renders the new user form" do
         post :create, user: { first_name: "" }
-        expect(response).to render_template :newg
+        expect(response).to render_template :new
       end
     end
   end
