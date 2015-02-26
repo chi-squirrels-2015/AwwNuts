@@ -25,7 +25,6 @@ describe UsersController do
       it "redirects to the users profile" do
         post :create, user: user_params
         expect(response).to redirect_to(dashboard_path)
-<<<<<<< HEAD
       end
     end
 
@@ -39,8 +38,6 @@ describe UsersController do
       it "re-renders the new user form" do
         post :create, user: { first_name: "" }
         expect(response).to render_template :new
-=======
->>>>>>> update user_controller and spec
       end
     end
   end
