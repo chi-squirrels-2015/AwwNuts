@@ -14,7 +14,7 @@ describe Validations do
   let(:question) {Question.new}
 
   it "has an error if the title field is empty" do
-    question.context = "I have no idea, I need help"
+    question.content = "I have no idea, I need help"
     question.author = bill
     question.valid?
     expect(question.errors[:title]).to_not be_empty
@@ -24,7 +24,7 @@ describe Validations do
     question.title = "How to enable/disable click events in an AngularJS directive"
     question.author = bill
     question.valid?
-    expect(question.errors[:context]).to_not be_empty
+    expect(question.errors[:content]).to_not be_empty
   end
 
   it "has an error if there is no author" do
