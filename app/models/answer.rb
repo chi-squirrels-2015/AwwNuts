@@ -4,5 +4,5 @@ class Answer < ActiveRecord::Base
 
   has_many :comments, as: :commentable
 
-  validates_presence_of :content, :author
+  validates :content, :author, presence: true
 end
