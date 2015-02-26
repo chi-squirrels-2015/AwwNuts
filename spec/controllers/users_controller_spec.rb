@@ -24,7 +24,7 @@ describe UsersController do
 
       it "redirects to the users profile" do
         post :create, user: user_params
-        expect(response).to redirect_to(user_path)
+        expect(response).to redirect_to(dashboard_path)
       end
     end
   end
