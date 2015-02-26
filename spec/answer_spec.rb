@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Answer do
+describe "Answer" do
   let(:bill) {User.new(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
   let(:steve) {User.new(username: "Steve Jobs", email: "kingsteve@gmail.com", password: "elegant")}
   let(:question) {Question.new(title: "How do I install Windows?", content: "I have no idea, I need help", author: bill)}
@@ -15,7 +15,7 @@ describe Answer do
   end
 end
 
-describe Validations do
+describe "Validations" do
   let(:steve) {User.new(username: "Steve Jobs", email: "kingsteve@gmail.com", password: "elegant")}
   let(:answer) {Answer.new}
 
