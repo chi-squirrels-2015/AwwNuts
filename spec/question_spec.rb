@@ -8,6 +8,7 @@ describe Question do
     expect(question.author.username).to eq("Bill Gates")
   end
 
+
   describe "Validations" do
     let(:bill) {User.new(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
     let(:question) {Question.new}
