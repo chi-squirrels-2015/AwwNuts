@@ -27,6 +27,19 @@ describe UsersController do
         expect(response).to redirect_to(dashboard_path)
       end
     end
+
+    context "when invalid params are passed" do
+      it "assigns a newly created but unsaved user as @user" do
+        post :create, user: { first_name: "Testy", email: "" }
+        expect(assigns(:user).id).to be_nil
+        expect(assigns(:user).first_name).to eq("Testy")
+      end
+
+      it "re-renders the new user form" do
+        post :create, user: { first_name: "" }
+        expect(response).to render_template :newg
+      end
+    end
   end
 end
 
