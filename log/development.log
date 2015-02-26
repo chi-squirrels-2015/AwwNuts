@@ -131,6 +131,7 @@ DEPRECATION WARNING: `#timestamp` was called without specifying an option for `n
   [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
   [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150226194138')
 >>>>>>> add User model, controller, migration, and model spec
+<<<<<<< HEAD
   [1m[36m (8.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
   [1m[35m (12.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -207,6 +208,17 @@ ORDER BY c.conname
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
   [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150226194138)
+  [1m[35m (0.1ms)[0m  BEGIN
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/John/Desktop/AwwNuts/db/migrate/20150226194138_create_users.rb:12)
+  [1m[36m (8.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150226194138"]]
+  [1m[36m (64.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> Fixing Comment Specs
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -218,7 +230,11 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+<<<<<<< HEAD
   [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+  [1m[35m (1.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> Fixing Comment Specs
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -230,7 +246,11 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+<<<<<<< HEAD
   [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+  [1m[36m (1.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> Fixing Comment Specs
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -242,7 +262,11 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+<<<<<<< HEAD
   [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
+  [1m[35m (1.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> Fixing Comment Specs
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -254,6 +278,7 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+<<<<<<< HEAD
   [1m[36mSQL (12.8ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
   [1m[35m (3.8ms)[0m  DROP TABLE "answers" CASCADE
   [1m[36m (4.6ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
@@ -277,3 +302,208 @@ ORDER BY c.conname
   [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150226192603')[0m
   [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150226193309')
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+=======
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.9ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (9.2ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (5.6ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (11.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.5ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (6.6ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (4.7ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (4.8ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (7.3ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150226194138')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.8ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.3ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (5.5ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.8ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.7ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.8ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.8ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.3ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (5.0ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.6ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (4.3ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.3ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.5ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.0ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (7.8ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "answers" CASCADE
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "content" text, "author_id" integer, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  DROP TABLE "comments" CASCADE
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author_id" integer, "content" text, "commentable_type" character varying, "commentable_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  DROP TABLE "questions" CASCADE
+  [1m[36m (8.4ms)[0m  [1mCREATE TABLE "questions" ("id" serial primary key, "content" text, "author_id" integer, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "email" character varying, "avatar_url" character varying DEFAULT 'http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg', "catch_phrase" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'Matt ''Syntax Error'' Gray' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'graymatthew3@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Matt 'Syntax Error' Gray"], ["email", "graymatthew3@gmail.com"], ["password_digest", "$2a$10$sigPJABKNxfZBSMlK6tT5eYzTIvk7LejOj01ZDlhZKMpJ1YOuYICC"], ["created_at", "2015-02-26 22:40:35.731464"], ["updated_at", "2015-02-26 22:40:35.731464"]]
+  [1m[35m (6.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "questions" ("title", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Get data attribute for all matched elements?"], ["content", "Say I have HTML like below:\n\n  <div class='test' data-file='1'></div>\n\n  <div class='test' data-file='2'></div>\n\n  I would like to get a list of all the data-file values. I tried using, $(.test).data('file') but this only returns 1 which makes sense according to jQuery's documentation which states it will return ...the value at the named data store for the first element in the set of matched elements Emphasis on first. Is there any way to tell jQuery to pull all of the data values into an array?"], ["author_id", 1], ["created_at", "2015-02-26 22:40:35.757542"], ["updated_at", "2015-02-26 22:40:35.757542"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "questions" ("title", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Is it possible to get 0 by subtracting two unequal floating point numbers?"], ["content", "Is it possible to get division by 0 (or infinity)? In normal cases it will not, of course. But what if a and b are very close, can (a-b) result in being 0 due to precision of the calculation? Note that this question is for Java, but I think it will apply to most programming languages."], ["author_id", 1], ["created_at", "2015-02-26 22:40:35.766030"], ["updated_at", "2015-02-26 22:40:35.766030"]]
+  [1m[35m (5.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("title", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "iOS app 'The application could not be verified' only on one device"], ["content", "I have two iphone devices( 4s and 5 ) connected to my computer and i am trying to install an application in both the devices. It installs pretty well in iphone 5 but it gives an error 'The application could not be verified.' when attempted to install in the iphone 4s device. The UDIDs of both the devices have been added in the provisioning profile generated for the application. Also, to add a note, I have just updated my iphone version to 8.1.3 in my 4s device. I am not sure though if the error has anything to do with it. Any help on this would be much appreciated. I have been stuck on this for some time now."], ["author_id", 1], ["created_at", "2015-02-26 22:40:35.773355"], ["updated_at", "2015-02-26 22:40:35.773355"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("title", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "What is indexed monad?"], ["content", "What is indexed monad and the motivation for this monad? I have read that it helps to keep track of the side effects. But the type signature and documentation doesn't lead me to anywhere. What would be an example of how it can help to keep track of side effects (or any other valid example)?"], ["author_id", 1], ["created_at", "2015-02-26 22:40:35.775871"], ["updated_at", "2015-02-26 22:40:35.775871"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "questions" ("title", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "What happens to a pointer that points to an element in a vector when I shuffle it?"], ["content", "I have a std::vector<int> and a pointer int* that points to an element in the vector. Let’s say the pointer points to the third element: pointer=&vector.at(2). If I now shuffle the vector, will it still point to the same element (the third) or will it point the the new location where the element which used to be the third has now moved? After that, I’d like to make the question a little bit more general: How do pointers and iterators to elements in a vector behave when the vector is expanded or reduced?"], ["author_id", 1], ["created_at", "2015-02-26 22:40:35.777544"], ["updated_at", "2015-02-26 22:40:35.777544"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "questions" ("title", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Fix merge conflicts in Git?"], ["content", "Is there a good way to explain how to resolve merge conflicts in Git?"], ["author_id", 1], ["created_at", "2015-02-26 22:40:35.779127"], ["updated_at", "2015-02-26 22:40:35.779127"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "answers" ("content", "author_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "You can create temporary array for that purpose: \n\n                      'var myArray = [];\n\n                      $('.test').each( function() {\n\n                          myArray.push( $( this ).data( 'file' ) );\n\n                      });\n\n                      console.log( myArray );'"], ["author_id", 1], ["question_id", 1], ["created_at", "2015-02-26 22:40:35.823722"], ["updated_at", "2015-02-26 22:40:35.823722"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "answers" ("content", "author_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Of course! Use .map \n\n                      'var dataValues = $('.test[data-file]'').map(function() {\n\n                      return $(this).data('file');\n\n                      }).get();'"], ["author_id", 1], ["question_id", 1], ["created_at", "2015-02-26 22:40:35.827162"], ["updated_at", "2015-02-26 22:40:35.827162"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "answers" ("content", "author_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "In Java, a - b is never equal to 0 if a != b. This is because Java mandates IEEE 754 floating point operations which support denormalized numbers. From the spec:\n\nIn particular, the Java programming language requires support of IEEE 754 denormalized floating-point numbers and gradual underflow, which make it easier to prove desirable properties of particular numerical algorithms. Floating-point operations do not 'flush to zero' if the calculated result is a denormalized number.\nIf an FPU works with denormalized numbers, subtracting unequal numbers can never produce zero (unlike multiplication), also see this question.\n\nFor other languages, it depends. In C or C++, for example, IEEE 754 support is optional.\n\nThat said, it is possible for the expression 2 / (a - b) to overflow, for example with a = 5e-308 and b = 4e-308."], ["author_id", 1], ["question_id", 2], ["created_at", "2015-02-26 22:40:35.828887"], ["updated_at", "2015-02-26 22:40:35.828887"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "answers" ("content", "author_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "As a workaround, what about the following?\n\n                              public double calculation(double a, double b) {\n                                   double c = a - b;\n                                   if (c == 0)\n                                   {\n                                       return 0;\n                                   }\n                                   else\n                                   {\n                                       return 2 / c;\n                                   }\n                              }"], ["author_id", 1], ["question_id", 2], ["created_at", "2015-02-26 22:40:35.830726"], ["updated_at", "2015-02-26 22:40:35.830726"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "answers" ("content", "author_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "I had something similar happen to me just recently. I updated my iPhone to 8.1.3, and started getting the 'application could not be verified' error message from Xcode on an app that installed just fine on the same iOS device from the same Mac just a few days ago.\n\nI deleted the app from the device, restarted Xcode, and the app subsequently installed on the device just fine without any error message. Not sure if deleting the app was the fix, or the problem was due to 'the phase of the moon'."], ["author_id", 1], ["question_id", 3], ["created_at", "2015-02-26 22:40:35.832706"], ["updated_at", "2015-02-26 22:40:35.832706"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "answers" ("content", "author_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Deleting app worked for me, thank you hotpaw2. I had the 'Application could not be verified' error in xcode after 8.1.3 iOS update, worked after deleting app from phone. Cannot comment because I do not have the minimum 50 posts..."], ["author_id", 1], ["question_id", 3], ["created_at", "2015-02-26 22:40:35.834655"], ["updated_at", "2015-02-26 22:40:35.834655"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "answers" ("content", "author_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "As ever, the terminology people use is not entirely consistent. There's a variety of inspired-by-monads-but-strictly-speaking-isn't-quite notions. The term 'indexed monad' is one of a number (including 'monadish' and 'parameterised monad' (Atkey's name for them)) of terms used to characterize one such notion. (Another such notion, if you're interested, is Katsumata's 'parametric effect monad', indexed by a monoid, where return is indexed neutrally and bind accumulates in its index.)\n\nFirst of all, let's check kinds.\n\nIxMonad (m :: state -> state -> * -> *)\nThat is, the type of a 'computation' (or 'action', if you prefer, but I'll stick with 'computation'), looks like\n\nm before after value\nwhere before, after :: state and value :: *. The idea is to capture the means to interact safely with an external system that has some predictable notion of state. A computation's type tells you what the state must be before it runs, what the state will be after it runs and (like with regular monads over *) what type of values the computation produces.\n\nThe usual bits and pieces are *-wise like a monad and state-wise like playing dominoes.\n\nireturn  ::  a -> m i i a    -- returning a pure value preserves state\nibind    ::  m i j a ->      -- we can go from i to j and get an a, thence\n             (a -> m j k b)  -- we can go from j to k and get a b, therefore\n             -> m i k b      -- we can indeed go from i to k and get a b\nThe notion of 'Kleisli arrow' (function which yields computation) thus generated is\n\na -> m i j b   -- values a in, b out; state transition i to j\nand we get a composition\n\nicomp :: IxMonad m => (b -> m j k c) -> (a -> m i j b) -> a -> m i k c\nicomp f g =  a -> ibind (g a) f\nand, as ever, the laws exactly ensure that ireturn and icomp give us a category\n\n      ireturn `icomp` g = g\n      f `icomp` ireturn = f\n(f `icomp` g) `icomp` h = f `icomp` (g `icomp` h)\nor, in comedy fake C/Java/whatever,\n\n      g(); skip = g()\n      skip; f() = f()\n{h(); g()}; f() = h(); {g(); f()}\nWhy bother? To model 'rules' of interaction. For example, you can't eject a dvd if there isn't one in the drive, and you can't put a dvd into the drive if there's one already in it. So\n\ndata DVDDrive :: Bool -> Bool -> * -> * where  -- Bool is 'drive full?'\n  DReturn :: a -> DVDDrive i i a\n  DInsert :: DVD ->                   -- you have a DVD\n             DVDDrive True k a ->     -- you know how to continue full\n             DVDDrive False k a       -- so you can insert from empty\n  DEject  :: (DVD ->                  -- once you receive a DVD\n              DVDDrive False k a) ->  -- you know how to continue empty\n             DVDDrive True k a        -- so you can eject when full\n\ninstance IxMonad DVDDrive where  -- put these methods where they need to go\n  ireturn = DReturn              -- so this goes somewhere else\n  ibind (DReturn a)     k  = k a\n  ibind (DInsert dvd j) k  = DInsert dvd (ibind j k)\n  ibind (DEject j)      k  = DEject j $  dvd -> ibind (j dvd) k\nWith this in place, we can define the 'primitive' commands\n\ndInsert :: DVD -> DVDDrive False True ()\ndInsert dvd = DInsert dvd $ DReturn ()\n\ndEject :: DVDrive True False DVD\ndEject = DEject $  dvd -> DReturn dvd\nfrom which others are assembled with ireturn and ibind. Now, I can write (borrowing do-notation)\n\ndiscSwap :: DVD -> DVDDrive True True DVD\ndiscSwap dvd = do dvd' <- dEject; dInsert dvd ; ireturn dvd'\nbut not the physically impossible\n\ndiscSwap :: DVD -> DVDDrive True True DVD\ndiscSwap dvd = do dInsert dvd; dEject      -- ouch!\nAlternatively, one can define one's primitive commands directly\n\ndata DVDCommand :: Bool -> Bool -> * -> * where\n  InsertC  :: DVD -> DVDCommand False True ()\n  EjectC   :: DVDCommand True False DVD\nand then instantiate the generic template\n\ndata CommandIxMonad :: (state -> state -> * -> *) ->\n                        state -> state -> * -> * where\n  CReturn  :: a -> CommandIxMonad c i i a\n  (:?)     :: c i j a -> (a -> CommandIxMonad c j k b) ->\n                CommandIxMonad c i k b\n\ninstance IxMonad (CommandIxMonad c) where\n  ireturn = CReturn\n  ibind (CReturn a) k  = k a\n  ibind (c :? j)    k  = c :?  a -> ibind (j a) k\nIn effect, we've said what the primitive Kleisli arrows are (what one 'domino' is), then built a suitable notion of 'computation sequence' over them.\n\nNote that for every indexed monad m, the 'no change diagonal' m i i is a monad, but in general, m i j is not. Moreover, values are not indexed but computations are indexed, so an indexed monad is not just the usual idea of monad instantiated for some other category.\n\nNow, look again at the type of a Kleisli arrow\n\na -> m i j b\n\nWe know we must be in state i to start, and we predict that any continuation will start from state j. We know a lot about this system! This isn't a risky operation! When we put the dvd in the drive, it goes in! The dvd drive doesn't get any say in what the state is after each command.\n\nBut that's not true in general, when interacting with the world. Sometimes you might need to give away some control and let the world do what it likes. For example, if you are a server, you might offer your client a choice, and your session state will depend on what they choose. The server's 'offer choice' operation does not determine the resulting state, but the server should be able to carry on anyway. It's not a 'primitive command' in the above sense, so indexed monads are not such a good tool to model the unpredictable scenario.\n\nWhat's a better tool?\n\ntype f :-> g = forall state. f state -> g state\n\nclass MonadIx (m :: (state -> *) -> (state -> *)) where\n  returnIx    :: x :-> m x\n  flipBindIx  :: (a :-> m b) -> (m a :-> m b)  -- tidier than bindIx\nScary biscuits? Not really, for two reasons. One, it looks rather more like what a monad is, because it is a monad, but over (state -> *) rather than *. Two, if you look at the type of a Kleisli arrow,\n\na :-> m b   =   forall state. a state -> m b state\nyou get the type of computations with a precondition a and postcondition b, just like in Good Old Hoare Logic. Assertions in program logics have taken under half a century to cross the Curry-Howard correspondence and become Haskell types. The type of returnIx says 'you can achieve any postcondition which holds, just by doing nothing', which is the Hoare Logic rule for 'skip'. The corresponding composition is the Hoare Logic rule for ';'.\n\nLet's finish by looking at the type of bindIx, putting all the quantifiers in.\n\nbindIx :: forall i. m a i -> (forall j. a j -> m b j) -> m b i\nThese foralls have opposite polarity. We choose initial state i, and a computation which can start at i, with postcondition a. The world chooses any intermediate state j it likes, but it must give us the evidence that postcondition b holds, and from any such state, we can carry on to make b hold. So, in sequence, we can achieve condition b from state i. By releasing our grip on the 'after' states, we can model unpredictable computations.\n\nBoth IxMonad and MonadIx are useful. Both model validity of interactive computations with respect to changing state, predictable and unpredictable, respectively. Predictability is valuable when you can get it, but unpredictability is sometimes a fact of life. Hopefully, then, this answer gives some indication of what indexed monads are, predicting both when they start to be useful and when they stop."], ["author_id", 1], ["question_id", 4], ["created_at", "2015-02-26 22:40:35.836338"], ["updated_at", "2015-02-26 22:40:35.836338"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "answers" ("content", "author_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "The pointer will continue to point to the same location, so when you shuffle, it'll point to whatever element has been moved into the location you specified.\n\nWhen you expand the size of a vector, all existing pointers and iterators into the vector can become invalid. When you shuffle, they continue to refer to the same location, which will (usually) contain a different value than it did before shuffling.\n\nReducing the size of a vector will depend on exactly how you do that. One way is to create a temporary vector as a copy of the current vector, swap the two, then destroy the temporary (usually implicitly, by letting it go out of scope). If you do this, the pointers will be into the temporary, and be invalidated when it's destroyed.\n\nIf you use shrink_to_fit that (probably) won't invalidate iterators/pointers, but may not have any effect (the standard specifies that it's a non-binding request, and doesn't say anything about it invalidating iterators/pointers)."], ["author_id", 1], ["question_id", 5], ["created_at", "2015-02-26 22:40:35.838762"], ["updated_at", "2015-02-26 22:40:35.838762"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "answers" ("content", "author_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "If the vector is shuffled without being resized then the pointer still points to the same location , which will probably contain a different element.\n\nIf the vector is resized to be larger, then the pointer is said to be 'invalidated' and it has the same status as an uninitialized pointer, i.e. evaluating it or trying to read through it causes undefined behaviour."], ["author_id", 1], ["question_id", 5], ["created_at", "2015-02-26 22:40:35.840435"], ["updated_at", "2015-02-26 22:40:35.840435"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "answers" ("content", "author_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Try: git mergetool\n\nIt opens a GUI that steps you through each conflict, and you get to choose how to merge. Sometimes it requires a bit of hand editing afterwards, but usually it's enough by itself. It is much better than doing the whole thing by hand certainly."], ["author_id", 1], ["question_id", 6], ["created_at", "2015-02-26 22:40:35.842004"], ["updated_at", "2015-02-26 22:40:35.842004"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "answers" ("content", "author_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Here's a probable use-case, from the top:\n\n                              You're going to pull some changes, but oops, you're not up to date:\n\n                              git fetch origin\n                              git pull origin master\n\n                              From ssh://gitosis@example.com:22/projectname\n                               * branch            master     -> FETCH_HEAD\n                              Updating a030c3a..ee25213\n                              error: Entry 'filename.c' not uptodate. Cannot merge.\n                              So you get up-to-date and try again, but have a conflict:\n\n                              git add filename.c\n                              git commit -m 'made some wild and crazy changes'\n                              git pull origin master\n\n                              From ssh://gitosis@example.com:22/projectname\n                               * branch            master     -> FETCH_HEAD\n                              Auto-merging filename.c\n                              CONFLICT (content): Merge conflict in filename.c\n                              Automatic merge failed; fix conflicts and then commit the result.\n                              So you decide to take a look at the changes:\n\n                              git mergetool\n                              Oh me, oh my, upstream changed some things, but just to use my changes...no...their changes...\n\n                              git checkout --ours filename.c\n                              git checkout --theirs filename.c\n                              git add filename.c\n                              git commit -m 'using theirs'\n                              And then we try a final time\n\n                              git pull origin master\n\n                              From ssh://gitosis@example.com:22/projectname\n                               * branch            master     -> FETCH_HEAD\n                              Already up-to-date.\n                              Ta-da!"], ["author_id", 1], ["question_id", 6], ["created_at", "2015-02-26 22:40:35.843632"], ["updated_at", "2015-02-26 22:40:35.843632"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+>>>>>>> Fixing Comment Specs

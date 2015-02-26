@@ -14,7 +14,6 @@ describe "Answer" do
     expect(answer.content).to eq("Just buy a mac. You'll never have to worry about anything ever again.")
   end
 
-
   describe "Validations" do
     let(:steve) {User.new(username: "Steve Jobs", email: "kingsteve@gmail.com", password: "elegant")}
     let(:answer) {Answer.new}
