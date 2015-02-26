@@ -1,17 +1,76 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/John/Desktop/AwwNuts/app/models/comment.rb": [
+      "/Users/mgray/Desktop/DBC/phase-3/AwwNuts/app/controllers/users_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        5,
+        null,
+        5,
+        3,
+        null,
+        2,
+        2,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        5,
+        null,
+        null
+      ],
+      "/Users/mgray/Desktop/DBC/phase-3/AwwNuts/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/mgray/Desktop/DBC/phase-3/AwwNuts/app/models/user.rb": [
+        1,
+        1,
+        null,
         1,
         null,
         1,
         1,
+        1,
         null,
         1,
+        null,
+        1,
+        13,
+        null,
+        null
+      ],
+      "/Users/mgray/Desktop/DBC/phase-3/AwwNuts/app/models/question.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/mgray/Desktop/DBC/phase-3/AwwNuts/app/models/answer.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
         1,
         null
       ]
     },
-    "timestamp": 1424985240
+    "timestamp": 1424990646
   }
 }
