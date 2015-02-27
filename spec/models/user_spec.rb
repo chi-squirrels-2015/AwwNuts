@@ -110,7 +110,7 @@ describe User do
     describe "answered_questions" do
       it "returns a collection of answered_questions" do
         answer.question = question
-        answer.saveg
+        answer.save
         expect(user.answered_questions).to include(question)
       end
     end
