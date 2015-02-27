@@ -25,13 +25,17 @@ describe CommentsController do
     end
 
     context "when invalid params are passed" do
-      xit "assigns a newly created but unsaved comment as @comment" do
+      it "assigns a newly created but unsaved comment as @comment" do
+      	session[:user_id] = user.id
+      	allow(comment).to receive(:current_user).with(:user)    
         post :create, question_id: 1, comment: { content: "" }
         expect(assigns(:comment).id).to be_nil
       end
 
-      xit "re-renders the comment form" do
-        post :create, comment: { content: "" }
+      it "re-renders the comment form" do
+      	session[:user_id] = user.id
+      	allow(comment).to receive(:current_user).with(:user)    	
+        post :create, question_id: 1, comment: { content: "" }
         expect(response).to render_template :new
       end
     end
