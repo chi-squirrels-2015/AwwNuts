@@ -22,7 +22,7 @@ describe QuestionsController do
     let(:bill) {User.create!(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
     let!(:question) { Question.create!(title: "How do I do this?", content: "I'm stuck", author: bill) }
 
-    it "sassigns the requested question as @question" do
+    it "assigns the requested question as @question" do
       get :show, id: question
       expect(assigns(:question)).to eq(question)
     end
@@ -50,8 +50,59 @@ describe QuestionsController do
     end
   end
 
-  describe 'DELETE #destroy' do
+  describe 'GET #edit' do
     let(:bill) {User.create!(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
+    let!(:question) { Question.create!(title: "How do I do this?", content: "I'm stuck", author: bill) }
+
+    it "assigns the requested question as question" do
+      get :edit, id: question.to_param
+      expect(assigns(:question)).to eq(question)
+    end
+  end
+
+  describe 'PUT #update' do
+      let!(:bill) {User.create!(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
+    context "when given valid params" do
+      before do
+        allow(@controller).to receive(:current_user) {bill}
+        @question = Question.create!(title: "How do I do this?", content: "I'm stuck", author: bill) 
+        put :update, id: @question.id, question: {:title => "How do I run rspec?"}
+        @question.reload
+      end
+    
+      it "updates a question" do 
+        expect(@question.title).to eq("How do I run rspec?")
+      end
+    end
+
+    context "when given invalid params" do
+      before do
+        allow(@controller).to receive(:current_user) {bill}
+        @question = Question.create!(title: "How do I do this?", content: "I'm stuck", author: bill) 
+        put :update, id: @question.id, question: {:title => ""}
+        @question.reload
+      end
+
+      it "does not update a question" do 
+        expect(@question.title).to eq("How do I do this?")
+      end
+    end
+  end
+
+  #   it "updates a question" do
+  #     allow(@controller).to receive(:current_user) {bill}
+  #     expect(@question.title).to eq("Media driver is missing when installing Windows 8")
+  #     end
+
+  #   # it "changes question's attributes" do
+  #   #   allow(@controller).to receive(:current_user) {bill}
+  #   #   put :update, id: question.id,  question: {title: "No route matches error"}
+  #   #   expect(question.title).to eq("No route matches error")
+  #   # end
+  # end
+
+  describe 'DELETE #destroy' do
+    let!(:bill) {User.create!(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
     let!(:question) { Question.create!(title: "How do I do this?", content: "I'm stuck", author: bill) }
 
 
