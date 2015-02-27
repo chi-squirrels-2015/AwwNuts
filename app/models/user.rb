@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 
   private
 
+  def full_name
+    "#{first_name} #{last_name}".titleize
+  end
+
   def downcase_email
     self.email = self.email.downcase if self.email.present?
   end
