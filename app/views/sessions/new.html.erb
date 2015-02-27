@@ -1,0 +1,17 @@
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<%= form_tag login_path, method: "post" %>
+  <div class="form-group">
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :password %>
+    <%= password_tag :password %>
+  </div>
+  <div class="form-group">
+    <%= submit_tag "Login" %>
+  </div>
+<% end %>
