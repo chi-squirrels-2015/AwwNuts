@@ -15,6 +15,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    if logged_in?
+      render :dashboard
+    else
+      redirect_to login_path
+    end
   end
 
   private
