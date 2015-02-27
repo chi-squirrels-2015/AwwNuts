@@ -90,4 +90,29 @@ describe User do
       end
     end
   end
+
+  describe "associations" do
+    let(:question) { Question.create!(title: "Fake Question", content: "fake", author: user) }
+    let(:answer) { Answer.create!(content: "fake answer", author: user) }
+
+    describe "questions" do
+      it "returns a collection of questions" do
+        expect(user.questions).to include(question)
+      end
+    end
+
+    describe "answers" do
+      it "returns a collection of answers" do
+        expect(user.answers).to include(answer)
+      end
+    end
+
+    describe "answered_questions" do
+      it "returns a collection of answered_questions" do
+        answer.question = question
+        answer.save
+        expect(user.answered_questions).to include(question)
+      end
+    end
+  end
 end

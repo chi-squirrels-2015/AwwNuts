@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_many :questions, foreign_key: :author_id
+  has_many :answers, foreign_key: :author_id
+  has_many :answered_questions, through: :answers, source: "question"
+
   before_validation :downcase_email
 
   validates :username, presence: true, uniqueness: true

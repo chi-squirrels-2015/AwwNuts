@@ -41,6 +41,23 @@ describe UsersController do
       end
     end
   end
+
+  describe 'GET #show' do
+    context "when a a user is logged in" do
+      it "should render the dashboard" do
+        allow(controller).to receive(:logged_in?) { true }
+        get :show
+        expect(response).to render_template("users/dashboard")
+      end
+    end
+
+    context "when a user isn't logged in" do
+      it "should redirect to the login page" do
+        get :show
+        expect(response).to redirect_to(login_path)
+      end
+    end
+  end
 end
 
 def user_params
