@@ -6,10 +6,8 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.author = User.find(current_user.id)
-
     if @comment.save
-      status 201
-      render :show
+      render :show, layout: false
     else
       @error = @comment.errors
       render :new
@@ -24,5 +22,23 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def context
+    if params[:question_id]
+      id = params[:question_id]
+      Question.find(params[:question_id])
+    else
+      id = params[:answer_id]
+      Answer.find(params[:answer_id])
+    end
+  end 
+
+  def context_url(context)
+    if Question === context
+      question_path(context)
+    else
+      answer_path(context)
+    end
   end
 end

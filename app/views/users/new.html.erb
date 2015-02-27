@@ -1,4 +1,12 @@
 <h1>Create an Account</h1>
+<% if @errors %>
+<ul>
+  <% @errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <%= form_for @user do |f| %>
   <div class="form-group">
     <%= f.label :first_name %>
