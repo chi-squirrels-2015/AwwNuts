@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   resources :users, only: [:new, :create]
+  resources :questions, only: [:new, :create, :edit, :update, :destroy] do
+    resources :comments, only: [:new, :create]
+    resources :answers, only: [:new, :create, :edit, :update, :destroy] do
+      resources :comments, only: [:new, :create]
+    end
+  end
 
   get "/dashboard" => 'users#show'
 
