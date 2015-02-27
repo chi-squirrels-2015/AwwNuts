@@ -8,7 +8,7 @@ describe CommentsController do
 
 
   describe 'GET #new' do
-    context "when a comment is created on an answer" do
+    context "when a comment is created on an answer"
       it "creates a new, unsaved, comment" do
         get :new, question_id: 1
         expect(assigns(:comment)).to be_instance_of Comment
@@ -51,8 +51,8 @@ describe CommentsController do
         expect(assigns(:comment)).to be_instance_of Comment
         expect(assigns(:comment).id).to be_nil
       end
-    end
   end
+  
 
   describe 'POST #create' do
     context "when valid params are passed from a answer" do
