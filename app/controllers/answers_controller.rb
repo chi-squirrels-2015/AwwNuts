@@ -26,7 +26,6 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
 
-    # @answer.update(answer_params)
     @answer.attributes = answer_params
     @answer.save
 
