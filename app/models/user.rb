@@ -5,22 +5,25 @@ class User < ActiveRecord::Base
   has_many :answers, foreign_key: :author_id
   has_many :answered_questions, through: :answers, source: "question"
 
-  before_create :default_avatar_url
   before_validation :downcase_email
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: { with: /\w+@\w+\.\w+/i }
-  validates :avatar_url, format: { with: /\Ahttps?:\/\//i }, allow_nil: true
+  validates :avatar_url, format: { with: /\Ahttps?:\/\//i }, allow_blank: true
 
   def full_name
     "#{first_name} #{last_name}".titleize
   end
 
-  private
-
-  def default_avatar_url
-    self.avatar_url ||= "http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg"
+  def avatar
+    if avatar_url.blank?
+      "http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg"
+    else
+      avatar_url
+    end
   end
+
+  private
 
   def downcase_email
     self.email = self.email.downcase if self.email.present?

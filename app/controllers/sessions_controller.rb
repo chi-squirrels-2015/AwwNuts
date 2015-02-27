@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:notice] = "Welcome back #{user.first_name.capitalize}."
+      flash[:notice] = "Signed in as #{user.email}."
       redirect_to dashboard_path
     else
       @email = params[:email]

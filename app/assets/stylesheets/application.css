@@ -18,6 +18,7 @@
 
 .navbar {
   border-radius: 0;
+  height: 60px;
 }
 
 .navbar-brand {
@@ -29,6 +30,6 @@
   margin-right: 10px;
 }
 
-.dropdown a:hover img {
-  border: 1px solid #000;
+.form-group {
+  padding: 10px 0;
 }

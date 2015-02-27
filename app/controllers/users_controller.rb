@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to dashboard_path, notice: "Welcome #{@user.first_name} to AwwNuts!"
+      session[:user_id] = @user.id
+      redirect_to dashboard_path, notice: "Welcome to AwwNuts!"
     else
       @errors = @user.errors
       render :new
