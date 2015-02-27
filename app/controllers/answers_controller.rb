@@ -4,15 +4,13 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @user = current_user
     @question = Question.find(params[:question_id])
-    @answer = Answer.new(answer_params)
+    @answer = @question.answers.build(answer_params)
 
-    @answer.author = @user.id
-    @answer.question = @question.id
+    @answer.author = current_user
 
     if @answer.save
-      render :show
+      redirect_to question_answers_path
     else
       @errors = @answer.errors
       render :new
@@ -24,14 +22,26 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
   end
 
+  def update
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+
+    # @answer.update(answer_params)
+    @answer.attributes = answer_params
+    @answer.save
+
+    redirect_to questions_path(@question)
+  end
+
   def destroy
+    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
     @answer.destroy
 
-    redirect_to question_path
+    redirect_to questions_path(@question)
   end
 
   def answer_params
-    params.require(:answer).permit(:content, :question)
+    params.require(:answer).permit(:content)
   end
 end
