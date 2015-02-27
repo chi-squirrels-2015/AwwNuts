@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, format: { with: /\w+@\w+\.\w+/i }
   validates :avatar_url, format: { with: /\Ahttps?:\/\//i }
 
-  private
-
   def full_name
     "#{first_name} #{last_name}".titleize
   end
+
+  private
 
   def downcase_email
     self.email = self.email.downcase if self.email.present?
