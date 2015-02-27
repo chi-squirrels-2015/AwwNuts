@@ -30,14 +30,14 @@ describe CommentsController do
     context "when invalid params are passed from a question" do
       it "assigns a newly created but unsaved comment as @comment" do
         session[:user_id] = user.id
-        allow(comment).to receive(:current_user).with(:user)    
+        allow(comment).to receive(:current_user).with(:user)
         post :create, question_id: 1, comment: { content: "" }
         expect(assigns(:comment).id).to be_nil
       end
 
       it "re-renders the comment form" do
         session[:user_id] = user.id
-        allow(comment).to receive(:current_user).with(:user)      
+        allow(comment).to receive(:current_user).with(:user)
         post :create, question_id: 1, comment: { content: "" }
         expect(response).to render_template :new
       end
@@ -53,7 +53,7 @@ describe CommentsController do
       end
     end
   end
-  
+
   describe 'POST #create' do
     context "when valid params are passed from a answer" do
       it "creates a new Comment" do
@@ -67,14 +67,14 @@ describe CommentsController do
     context "when invalid params are passed from a answer" do
       it "assigns a newly created but unsaved comment as @comment" do
         session[:user_id] = user.id
-        allow(comment).to receive(:current_user).with(:user)    
+        allow(comment).to receive(:current_user).with(:user)
         post :create, question_id: 1, answer_id: 1, comment: { content: "" }
         expect(assigns(:comment).id).to be_nil
       end
 
       it "re-renders the comment form" do
         session[:user_id] = user.id
-        allow(comment).to receive(:current_user).with(:user)      
+        allow(comment).to receive(:current_user).with(:user)
         post :create, question_id: 1, answer_id: 1, comment: { content: "" }
         expect(response).to render_template :new
       end
