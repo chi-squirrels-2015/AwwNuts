@@ -3,39 +3,79 @@ require 'spec_helper'
 describe CommentsController do
 	let!(:user) { User.create(user_test_params) }
 	let!(:question) { Question.create(question_test_params) }
+  let!(:answer) {Answer.create(answer_test_params)}
   let!(:comment) { Comment.new(comment_test_params) }
 
 
   describe 'GET #new' do
-    it "creates a new, unsaved, comment" do
-      get :new, question_id: 1
-      expect(assigns(:comment)).to be_instance_of Comment
-      expect(assigns(:comment).id).to be_nil
+    context "when a comment is created on an answer" do
+      it "creates a new, unsaved, comment" do
+        get :new, question_id: 1
+        expect(assigns(:comment)).to be_instance_of Comment
+        expect(assigns(:comment).id).to be_nil
+      end
     end
   end
 
   describe 'POST #create' do
-    context "when valid params are passed" do
+    context "when valid params are passed from a question" do
       it "creates a new Comment" do
-      	session[:user_id] = user.id
-      	allow(comment).to receive(:current_user).with(:user)
+        session[:user_id] = user.id
+        allow(comment).to receive(:current_user).with(:user)
 
         expect{ post :create, question_id: 1, comment: comment_test_params }.to change{ Comment.count }.by(1)
       end
     end
 
-    context "when invalid params are passed" do
+    context "when invalid params are passed from a question" do
+      it "assigns a newly created but unsaved comment as @comment" do
+        session[:user_id] = user.id
+        allow(comment).to receive(:current_user).with(:user)    
+        post :create, question_id: 1, comment: { content: "" }
+        expect(assigns(:comment).id).to be_nil
+      end
+
+      it "re-renders the comment form" do
+        session[:user_id] = user.id
+        allow(comment).to receive(:current_user).with(:user)      
+        post :create, question_id: 1, comment: { content: "" }
+        expect(response).to render_template :new
+      end
+    end
+  end
+
+  describe 'GET #new' do
+    context "when a comment is created on an answer" do
+      it "creates a new, unsaved, comment" do
+        get :new, question_id: 1, answer_id: 1
+        expect(assigns(:comment)).to be_instance_of Comment
+        expect(assigns(:comment).id).to be_nil
+      end
+    end
+  end
+
+  describe 'POST #create' do
+    context "when valid params are passed from a answer" do
+      it "creates a new Comment" do
+      	session[:user_id] = user.id
+      	allow(comment).to receive(:current_user).with(:user)
+
+        expect{ post :create, question_id: 1, answer_id: 1, comment: comment_test_params }.to change{ Comment.count }.by(1)
+      end
+    end
+
+    context "when invalid params are passed from a answer" do
       it "assigns a newly created but unsaved comment as @comment" do
       	session[:user_id] = user.id
       	allow(comment).to receive(:current_user).with(:user)    
-        post :create, question_id: 1, comment: { content: "" }
+        post :create, question_id: 1, answer_id: 1, comment: { content: "" }
         expect(assigns(:comment).id).to be_nil
       end
 
       it "re-renders the comment form" do
       	session[:user_id] = user.id
       	allow(comment).to receive(:current_user).with(:user)    	
-        post :create, question_id: 1, comment: { content: "" }
+        post :create, question_id: 1, answer_id: 1, comment: { content: "" }
         expect(response).to render_template :new
       end
     end
@@ -49,9 +89,15 @@ def comment_test_params
 end
 
 def question_test_params
+  { author: User.find_by(username: "user1234"),
+    title: "Test Title",
+    content: "This is the best fake question ever, or is it?" }
+end
+
+def answer_test_params
 	{ author: User.find_by(username: "user1234"),
-		title: "Test Title",
-		content: "This is the best fake question ever, or is it?" }
+		question: Question.find_by(title: "Test Title"),
+		content: "At least, this is the best fake answer ever!" }
 end
 
 def user_test_params
