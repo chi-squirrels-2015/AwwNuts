@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to dashboard_path, notice: "Welcome #{@user.first_name} to AwwNuts!"
     else
-      @error = @user.errors
+      @errors = @user.errors
       render :new
     end
   end
