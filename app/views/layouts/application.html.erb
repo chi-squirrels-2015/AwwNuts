@@ -31,6 +31,17 @@
     <p class="navbar-btn navbar-right"><%= link_to "Signup", new_user_path, class: "btn btn-primary" %></p>
     <% end %>
 </nav>
+<% if flash %>
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <% if flash[:alert] %>
+        <div class="alert alert-dismissible alert-danger"><%= flash[:alert] %></div>
+      <% elsif flash[:notice] %>
+        <div class="alert alert-dismissible alert-info"><%= flash[:notice] %></div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 <%= yield %>
 
 </body>

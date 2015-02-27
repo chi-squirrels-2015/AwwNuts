@@ -6,15 +6,18 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      flash[:notice] = "Welcome back #{user.first_name.capitalize}."
       redirect_to dashboard_path
     else
       @email = params[:email]
+      flash[:alert] = "Email/password combination not valid."
       render :new
     end
   end
 
   def destroy
     session.delete(:user_id)
+    flash[:notice] = "Successfully logged out."
     redirect_to login_path
   end
 end
