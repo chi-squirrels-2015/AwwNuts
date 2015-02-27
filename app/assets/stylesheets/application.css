@@ -19,3 +19,16 @@
 .navbar {
   border-radius: 0;
 }
+
+.navbar-brand {
+  line-height: 30px;
+}
+
+.dropdown img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.dropdown a:hover img {
+  border: 1px solid #000;
+}
