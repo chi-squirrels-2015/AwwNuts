@@ -1,0 +1,7 @@
+<%= form_for @question do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.label "Question" %>
+<%= f.text_area :content %>
+<%= f.submit %>
+<% end %>
