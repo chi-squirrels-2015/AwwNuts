@@ -20,17 +20,39 @@ describe SessionsController do
         expect(response).to redirect_to(dashboard_path)
       end
 
-      it "sets the current_user" do
-        expect(current_user.email).to eq("test@test.com")
+      it "creates a session" do
+        expect(session[:user_id]).to eq(user.id)
       end
     end
 
     context "when given an invalid email/password combination" do
-      pending
+      before do
+        post :create, { email: "test@test.com", password: nil }
+      end
+
+      it "re-renders the login form" do
+        expect(response).to render_template("sessions/new")
+      end
+
+      it "doesn't create a session" do
+        expect(session[:user_id]).to be_nil
+      end
+
+      it "assigns the email to @email" do
+        expect(assigns(:email)).to eq("test@test.com")
+      end
     end
   end
 
   describe 'GET #destroy' do
-    pending
+    it "redirects to the login_path" do
+      get :destroy
+      expect(response).to redirect_to(login_path)
+    end
+
+    it "clears the session" do
+      get :destroy
+      expect(session[:user_id]).to be_nil
+    end
   end
 end
