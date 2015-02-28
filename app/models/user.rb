@@ -10,8 +10,6 @@ class User < ActiveRecord::Base
   has_many :received_question_votes, through: :questions, source: :votes
   has_many :received_answer_votes, through: :answers, source: :votes
 
-
-  before_create :default_avatar_url
   before_validation :downcase_email
 
   validates :username, presence: true, uniqueness: true
