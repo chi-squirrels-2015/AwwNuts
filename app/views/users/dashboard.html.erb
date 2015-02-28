@@ -1,0 +1,154 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			<ul class="nav nav-pills nav-stacked admin-menu">
+				<li class="active"><a href="#" data-target-id="home">Home</a></li>
+				<li><a href=<%= new_question_path %> >Ask a Question</a></li>
+				<li><a href=<%=  questions_path %> > Browse Questions</a></li>
+				<li><a href="#"> Trending</a></li>
+				<li><a href="#"> Tags</a></li>
+				<li><a href="#"> Responses</a></li>
+				<li><a href="#"> Settings</a></li>
+			</ul>
+		</div>
+		<div class="col-md-10">
+			<div class="row">
+				<div class="col-md-8 well admin-content" id="home">
+					<h3 class="page-header"><%= current_user.first_name.capitalize%></h3>
+					<div class="row">
+						<div class="col-xs-6">
+							<img src=<%= current_user.avatar_url %> class="img-thumbnail" width="304" height="236">
+						</div>
+						<div class="col-xs-6">
+							<table class="center">
+								<tbody>
+									<tr>
+										<td> <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </td>
+									</tr>
+									<tr>
+										<td> Member for: <%= member_for %> </td>
+									</tr>
+									<tr>
+										<td>Email: <%= current_user.email %></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<i class="fa fa-bell fa-fw"></i> Notifications Panel
+						</div>
+						<div class="panel-body">
+							<div class="list-group">
+								<% @question = current_user.questions.order("questions.created_at desc limit(5)") %>
+								<% @question.each do |question| %>
+								<a href="<%= question_path(question.id) %>" class="list-group-item">
+									<i class="fa fa-comment fa-fw"></i> New Question Posted
+									<span class="pull-right text-muted small"><em><%= question_activity(question.id) %> </em>
+									</span>
+								</a>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="panel panel-blue">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge"><%= current_user.questions.count %></div>
+									<div>Questions</div>
+								</div>
+							</div>
+						</div>
+						<a href="#">
+							<div class="panel-footer">
+								<span class="pull-left">View Details</span>
+								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+								<div class="clearfix"></div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="panel panel-green">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-check-circle fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge"><%= current_user.answers.count %></div>
+									<div>Answers</div>
+								</div>
+							</div>
+						</div>
+						<a href="#">
+							<div class="panel-footer">
+								<span class="pull-left">View Details</span>
+								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+								<div class="clearfix"></div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="panel panel-yellow">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-star fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<!-- NEED VOTES ASSOCIATION TO WORK -->
+									<div class="huge">0</div>
+									<div>Votes Received</div>
+								</div>
+							</div>
+						</div>
+						<a href="#">
+							<div class="panel-footer">
+								<span class="pull-left">View Details</span>
+								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+								<div class="clearfix"></div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="panel panel-gray">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-thumbs-o-up fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge"><%= current_user.cast_votes.count %></div>
+									<div>Votes Cast</div>
+								</div>
+							</div>
+						</div>
+						<a href="#">
+							<div class="panel-footer">
+								<span class="pull-left">View Details</span>
+								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+								<div class="clearfix"></div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+   
