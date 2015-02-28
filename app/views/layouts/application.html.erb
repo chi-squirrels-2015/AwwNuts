@@ -14,8 +14,12 @@
     <% if logged_in? %>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          <img src="<%= current_user.avatar_url %>" />
-          <%= current_user.full_name %>
+          <img src="<%= current_user.avatar %>" />
+          <% if current_user.full_name.blank? %>
+            <%= current_user.username %>
+          <% else %>
+            <%= current_user.full_name %>
+          <% end %>
           <span class="caret"></span>
         </a>
             <ul class="dropdown-menu" role="menu">
@@ -31,6 +35,23 @@
     <p class="navbar-btn navbar-right"><%= link_to "Signup", new_user_path, class: "btn btn-primary" %></p>
     <% end %>
 </nav>
+<% if flash %>
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <% if flash[:alert] %>
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <%= flash[:alert] %>
+        </div>
+      <% elsif flash[:notice] %>
+        <div class="alert alert-dismissible alert-info">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 <%= yield %>
 
 </body>
