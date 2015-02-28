@@ -47,6 +47,7 @@ class AnswersController < ApplicationController
       vote = Vote.find_or_initialize_by(votable: answer, voter: current_user)
       vote.up
       vote.save
+      puts vote
       render json: { vote_count: answer.vote_count }
     end
   end

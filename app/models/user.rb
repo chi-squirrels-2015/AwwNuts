@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   def avatar
     if avatar_url.blank?
-      "http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg"
+      "https://robohash.org/o24ruwlekfj239487wejfn23498ty3ejfbn3oity483fgjn?size=300x300"
     else
       avatar_url
     end
