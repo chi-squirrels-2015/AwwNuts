@@ -170,6 +170,13 @@ table.center {
   padding-bottom: 10px;
 }
 
+.question-author {
+  padding: 0;
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
 .number {
   font-size: 16px;
   display: block;
