@@ -27,7 +27,7 @@
         <% @question.answers.each do |answer| %>
           <div class="answer-content">
             <p><%= answer.content %></p>
-            <h4><%= answer.author.username %></h4>
+            <%= render partial: "/users/show", locals: { type: answer } %>
             <p><%= answer.created_at %></p>
           </div>
         <% end %>
