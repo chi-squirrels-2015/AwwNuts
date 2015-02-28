@@ -19,7 +19,7 @@ describe QuestionsController do
   end
 
   describe 'GET #show' do
-    let(:bill) {User.create!(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
+    let(:bill) {User.create!(first_name: "Bill", last_name: "Gates", username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
     let!(:question) { Question.create!(title: "How do I do this?", content: "I'm stuck", author: bill) }
 
     it "assigns the requested question as @question" do
@@ -29,7 +29,7 @@ describe QuestionsController do
   end
 
   describe 'POST #create' do
-    let(:bill) {User.create!(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
+    let(:bill) {User.create!(first_name: "Bill", last_name: "Gates", username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
 
     describe "when valid params are passed" do
       it "creates a new question" do
@@ -51,7 +51,7 @@ describe QuestionsController do
   end
 
   describe 'GET #edit' do
-    let(:bill) {User.create!(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
+    let(:bill) {User.create!(first_name: "Bill", last_name: "Gates", username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
     let!(:question) { Question.create!(title: "How do I do this?", content: "I'm stuck", author: bill) }
 
     it "assigns the requested question as question" do
@@ -61,7 +61,7 @@ describe QuestionsController do
   end
 
   describe 'PUT #update' do
-      let!(:bill) {User.create!(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
+      let!(:bill) {User.create!(first_name: "Bill", last_name: "Gates", username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
     context "when given valid params" do
       before do
         allow(@controller).to receive(:current_user) {bill}
@@ -89,20 +89,8 @@ describe QuestionsController do
     end
   end
 
-  #   it "updates a question" do
-  #     allow(@controller).to receive(:current_user) {bill}
-  #     expect(@question.title).to eq("Media driver is missing when installing Windows 8")
-  #     end
-
-  #   # it "changes question's attributes" do
-  #   #   allow(@controller).to receive(:current_user) {bill}
-  #   #   put :update, id: question.id,  question: {title: "No route matches error"}
-  #   #   expect(question.title).to eq("No route matches error")
-  #   # end
-  # end
-
   describe 'DELETE #destroy' do
-    let!(:bill) {User.create!(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
+    let!(:bill) {User.create!(first_name: "Bill", last_name: "Gates", username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
     let!(:question) { Question.create!(title: "How do I do this?", content: "I'm stuck", author: bill) }
 
 

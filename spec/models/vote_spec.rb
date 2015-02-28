@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Vote do
-  let(:user) { User.create!(username: "test", password: "test", email: "test@test.com") }
+  let(:user) { User.create!(first_name: "John", last_name: "Doe", username: "test", password: "test", email: "test@test.com") }
   let(:question) { user.questions.create!(title: "test", content: "test") }
   let(:vote) { question.votes.new(voter: user, count: 0) }
 
