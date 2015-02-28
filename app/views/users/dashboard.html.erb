@@ -2,16 +2,13 @@
 	<div class="row">
 		<div class="col-md-2">
 			<ul class="nav nav-pills nav-stacked admin-menu">
-				<li class="active"><a href="#" data-target-id="home"><i class="fa fa-home fa-fw"></i>Home</a></li>
-				<li><a href="http://www.jquery2dotnet.com" data-target-id="widgets"><i class="fa fa-list-alt fa-fw"></i>Widgets</a></li>
-				<li><a href="http://www.jquery2dotnet.com" data-target-id="pages"><i class="fa fa-file-o fa-fw"></i>Pages</a></li>
-				<li><a href="http://www.jquery2dotnet.com" data-target-id="charts"><i class="fa fa-bar-chart-o fa-fw"></i>Charts</a></li>
-				<li><a href="http://www.jquery2dotnet.com" data-target-id="table"><i class="fa fa-table fa-fw"></i>Table</a></li>
-				<li><a href="http://www.jquery2dotnet.com" data-target-id="forms"><i class="fa fa-tasks fa-fw"></i>Forms</a></li>
-				<li><a href="http://www.jquery2dotnet.com" data-target-id="calender"><i class="fa fa-calendar fa-fw"></i>Calender</a></li>
-				<li><a href="http://www.jquery2dotnet.com" data-target-id="library"><i class="fa fa-book fa-fw"></i>Library</a></li>
-				<li><a href="http://www.jquery2dotnet.com" data-target-id="applications"><i class="fa fa-pencil fa-fw"></i>Applications</a></li>
-				<li><a href="http://www.jquery2dotnet.com" data-target-id="settings"><i class="fa fa-cogs fa-fw"></i>Settings</a></li>
+				<li class="active"><a href="#" data-target-id="home">Home</a></li>
+				<li><a href=<%= new_question_path %> >Ask a Question</a></li>
+				<li><a href=<%=  questions_path %> > Browse Questions</a></li>
+				<li><a href="#"> Trending</a></li>
+				<li><a href="#"> Tags</a></li>
+				<li><a href="#"> Responses</a></li>
+				<li><a href="#"> Settings</a></li>
 			</ul>
 		</div>
 		<div class="col-md-10">
@@ -87,7 +84,7 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-3">
-									<i class="fa fa-tasks fa-5x"></i>
+									<i class="fa fa-check-circle fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
 									<div class="huge"><%= current_user.answers.count %></div>
@@ -109,7 +106,7 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-3">
-									<i class="fa fa-support fa-5x"></i>
+									<i class="fa fa-star fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
 									<!-- NEED VOTES ASSOCIATION TO WORK -->
@@ -132,7 +129,7 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-3">
-									<i class="fa fa-tasks fa-5x"></i>
+									<i class="fa fa-thumbs-o-up fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
 									<div class="huge"><%= current_user.cast_votes.count %></div>
