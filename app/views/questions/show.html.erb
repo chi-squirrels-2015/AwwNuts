@@ -10,10 +10,15 @@
           <span class="number"><%= @question.comments.count %></span>comments
         </div>
         <div class="stat col-md-12">
-          <span class="number"><%= @question.vote_count %></span>votes
+          <span id="vote_count" class="number"><%= @question.vote_count %></span>votes
           <div class="row">
-            <%= link_to "⇡", question_upvote_path(@question), method: :post, class: "btn-xs btn-success" %>
-            <%= link_to "⇣", question_downvote_path(@question), method: :post, class: "btn-xs btn-danger" %>
+            <% if logged_in? %>
+              <%= link_to "⇡", question_upvote_path(@question), method: :post, remote: true, id: "upvote", class: "btn-xs btn-success" %>
+              <%= link_to "⇣", question_downvote_path(@question), method: :post, remote: true, id: "downvote", class: "btn-xs btn-danger" %>
+            <% else %>
+              <%= link_to "⇡", "#", class: "btn-xs btn-default" %>
+              <%= link_to "⇣", "#", class: "btn-xs btn-default" %>
+            <% end %>
           </div>
         </div>
       </div>

@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
       vote = Vote.find_or_initialize_by(votable: question, voter: current_user)
       vote.up
       vote.save
-      redirect_to question
+      render json: { vote_count: question.vote_count }
     end
   end
 
@@ -59,7 +59,7 @@ class QuestionsController < ApplicationController
       vote = Vote.find_or_initialize_by(votable: question, voter: current_user)
       vote.down
       vote.save
-      redirect_to question
+      render json: { vote_count: question.vote_count }
     end
   end
 
