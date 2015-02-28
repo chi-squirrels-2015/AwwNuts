@@ -45,9 +45,9 @@ describe SessionsController do
   end
 
   describe 'GET #destroy' do
-    it "redirects to the login_path" do
+    it "redirects to the root" do
       get :destroy
-      expect(response).to redirect_to(login_path)
+      expect(response).to redirect_to(root_path)
     end
 
     it "clears the session" do
