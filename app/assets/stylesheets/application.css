@@ -30,6 +30,55 @@
   margin-right: 10px;
 }
 
-.form-group {
-  padding: 10px 0;
+.dropdown a:hover img {
+  border: 1px solid #000;
+}
+
+.stats div {
+  width: 80px;
+  border-right: 1px solid #eee;
+  text-align: center;
+  padding: 10px;
+  float: left;
+}
+
+.stats div:hover {
+  background-color: #eee;
+}
+
+.date {
+  line-height: 55px;
+  float: right;
+}
+
+.stats div:last-child {
+  border-right: none;
+}
+
+.stats {
+  float: left;
+  margin-right: 20px;
+}
+
+.question-list-item {
+  overflow: auto;
+  padding: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.question-list-item .question-content {
+  font-size: 16px;
+}
+
+.question-list-item h4 {
+  line-height: 55px;
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+
+.number {
+  font-size: 16px;
+  display: block;
+  line-height: 20px;
 }
