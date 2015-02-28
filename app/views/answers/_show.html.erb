@@ -2,14 +2,28 @@
   <h2>Answers</h2>
   <div class="col-md-8">
     <% question.answers.each do |answer| %>
-    <div class="answer-content">
-      <p><%= answer.content %></p>
-      <p><%= time_ago_in_words(answer.created_at) %> ago</p>
-      <%= render partial: "/users/show", locals: { type: answer } %>
-    <div class="answer-comments col-md-12">
-      <%= render partial: "/comments/show", locals: { comments: answer.comments } %>
-    </div>
-    </div>
+      <div class="col-md-2">
+        <div class="stat">
+          <span class="number vote_count"><%= answer.vote_count %></span>votes
+          <div class="row">
+            <% if logged_in? %>
+              <%= link_to "⇡", question_answer_upvote_path(question, answer), method: :post, remote: true, class: "upvote btn-xs btn-success" %>
+              <%= link_to "⇣", question_answer_downvote_path(question, answer), method: :post, remote: true, class: "downvote btn-xs btn-danger" %>
+            <% else %>
+              <%= link_to "⇡", "#", class: "btn-xs btn-default" %>
+              <%= link_to "⇣", "#", class: "btn-xs btn-default" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 answer-content">
+        <p><%= answer.content %></p>
+        <p><%= time_ago_in_words(answer.created_at) %> ago</p>
+        <%= render partial: "/users/show", locals: { type: answer } %>
+        <div class="answer-comments col-md-12">
+          <%= render partial: "/comments/show", locals: { comments: answer.comments } %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

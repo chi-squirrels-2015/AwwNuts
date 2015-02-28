@@ -41,6 +41,28 @@ class AnswersController < ApplicationController
     redirect_to questions_path(@question)
   end
 
+  def upvote
+    if logged_in?
+      answer = Answer.find(params[:answer_id])
+      vote = Vote.find_or_initialize_by(votable: answer, voter: current_user)
+      vote.up
+      vote.save
+      render json: { vote_count: answer.vote_count }
+    end
+  end
+
+  def downvote
+    if logged_in?
+      answer = Answer.find(params[:answer_id])
+      vote = Vote.find_or_initialize_by(votable: answer, voter: current_user)
+      vote.down
+      vote.save
+      render json: { vote_count: answer.vote_count }
+    end
+  end
+
+  private
+
   def answer_params
     params.require(:answer).permit(:content)
   end
