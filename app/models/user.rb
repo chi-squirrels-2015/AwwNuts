@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   before_validation :downcase_email
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: { with: /\w+@\w+\.\w+/i }
   validates :avatar_url, format: { with: /\Ahttps?:\/\//i }, allow_blank: true

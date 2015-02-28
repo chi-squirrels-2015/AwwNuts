@@ -9,7 +9,7 @@ describe SessionsController do
   end
 
   describe 'POST #create' do
-    let!(:user) { User.create!(email: "test@test.com", password: "password", username: "fakeUser") }
+    let!(:user) { User.create!(first_name: "John", last_name: "Doe", email: "test@test.com", password: "password", username: "fakeUser") }
 
     context "when given a matching email/password combination" do
       before do

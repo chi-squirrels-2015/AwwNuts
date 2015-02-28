@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe AnswersController do
-	let!(:jean) {User.create!(username: "Jean Luc Picard", password: "test", email: "cptjlp@gmail.com")}
-	let!(:bill) {User.create!(username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
+	let!(:jean) {User.create!(first_name: "Jean", last_name: "Picard", username: "Jean Luc Picard", password: "test", email: "cptjlp@gmail.com")}
+	let!(:bill) {User.create!(first_name: "Bill", last_name: "Gates", username: "Bill Gates", email: "thebill@gmail.com", password: "ilovewindows")}
 
 	let!(:question) {Question.create!(title: "How do I install Windows?", content: "I have no idea, I need help", author: bill)}
 	let!(:answer) { Answer.new }
