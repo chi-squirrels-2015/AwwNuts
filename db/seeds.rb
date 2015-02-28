@@ -4,7 +4,8 @@ asker = User.create!(first_name: "Matt",
                      last_name: "Gray",
                       username: "Matt 'Syntax Error' Gray",
                          email: "graymatthew3@gmail.com",
-                      password: "sweatpants")
+                      password: "sweatpants",
+                      avatar_url: "http://img2.wikia.nocookie.net/__cb20121014221625/thelaboffrankenstein/images/e/e2/Buff_squirrel.jpg")
 
 answerer = User.create!(first_name: "Aaron",
                         last_name: "Harris",

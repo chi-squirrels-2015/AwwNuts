@@ -46,7 +46,7 @@ describe AnswersController do
 
 		it "re-renders the new answer form" do
 			post :create, question_id: question.id, answer: {content: "Make it work."}
-			expect(response).to render_template :new
+			expect(response).to render_template :_new
 		end
 	end
 

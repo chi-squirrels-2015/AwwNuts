@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.author = User.find(current_user.id)
     if @comment.save
-      render :show, layout: false
+      render :_show, layout: false
     else
       @error = @comment.errors
       render :new

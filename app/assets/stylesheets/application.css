@@ -20,10 +20,27 @@
   padding: 5px;
   margin: 10px;
   border-top: 1px solid #333;
+  overflow: auto;
+}
+
+.answer-content > .owner {
+  display: block;
+  float: right;
+  padding-bottom: 10px;
 }
 
 .answer-content:first-child {
   border-top: 0;
+}
+
+.answer-comments .comment-content {
+  background: #EEE;
+  border-top: 1px solid lightgrey;
+}
+
+.question-comments .comment-content {
+  background: #EEE;
+  border-top: 1px solid lightgrey;
 }
 
 .navbar {
@@ -144,6 +161,20 @@ table.center {
 
 .question-content {
   font-size: 18px;
+  margin-bottom: 5%;
+}
+
+.question-content > .owner {
+  display: block;
+  float: right;
+  padding-bottom: 10px;
+}
+
+.question-author {
+  padding: 0;
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-top: 10px;
 }
 
 .number {
