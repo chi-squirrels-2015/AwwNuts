@@ -1,10 +1,14 @@
 require 'faker'
 
-asker = User.create!(username: "Matt 'Syntax Error' Gray",
+asker = User.create!(first_name: "Matt",
+                     last_name: "Gray",
+                      username: "Matt 'Syntax Error' Gray",
                          email: "graymatthew3@gmail.com",
                       password: "sweatpants")
 
-answerer = User.create!(username: "A-aron",
+answerer = User.create!(first_name: "Aaron",
+                        last_name: "Harris",
+                        username: "A-aron",
                           email: "a-aron@gmail.com",
                           password: "iamtheonewhoanswers")
 
