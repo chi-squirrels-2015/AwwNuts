@@ -17,8 +17,8 @@
  */
 .answer-content {
   background: #EEE;
-  padding: 5px;
-  margin: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
   border-top: 1px solid #333;
   overflow: auto;
 }
@@ -57,7 +57,6 @@
   margin-right: 10px;
 }
 
-<<<<<<< HEAD
 .dropdown a:hover img {
   border: 1px solid #000;
 }

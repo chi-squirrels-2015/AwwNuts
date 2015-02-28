@@ -263,21 +263,21 @@ q6a2 = Answer.create(content: "Here's a probable use-case, from the top:
               question: question6)
 
 
-voters = [asker, answerer]
+# voters = [asker, answerer]
 
-50.times do
-  asker.questions.each do |question|
-    question.votes << Vote.create(count: rand(-1..1), voter: voters[1])
-    question.votes << Vote.create(count: rand(-1..1), voter: voters[0])
 
-    question.answers.each do |answer|
-      answer.votes << Vote.create(count: rand(-1..1), voter: voters[0])
-      answer.votes << Vote.create(count: rand(-1..1), voter: voters[1])
-    end
-  end
-end
+#   asker.questions.each do |question|
+#     question.votes << Vote.create(count: rand(-1..1), voter: voters[1])
+#     question.votes << Vote.create(count: rand(-1..1), voter: voters[0])
 
-50.times do
+#     question.answers.each do |answer|
+#       answer.votes << Vote.create(count: rand(-1..1), voter: voters[0])
+#       answer.votes << Vote.create(count: rand(-1..1), voter: voters[1])
+#     end
+#   end
+# end
+
+20.times do
   User.create(username: Faker::Internet.user_name,
             first_name: Faker::Name.first_name,
              last_name: Faker::Name.last_name,
@@ -287,14 +287,14 @@ end
           catch_phrase: Faker::Hacker.say_something_smart )
 end
 
-(User.count * (rand(10)+1)).times do
+(User.count * 2).times do
   Question.create(content: Faker::Lorem.paragraph,
                    author: User.find(rand(User.count)+1),
                     title: Faker::Commerce.product_name)
 end
 
 Question.all.each do
-  10.times do
+  5.times do
     Answer.create(content: Faker::Lorem.paragraph,
                    author: User.find(rand(User.count)+1),
                  question: Question.find(rand(Question.count)+1))
@@ -311,7 +311,7 @@ Answer.all.each do
 end
 
 Question.all.each do
-  5.times do
+  3.times do
     Comment.create(content: Faker::Lorem.paragraph,
                     author: User.find(rand(User.count)+1),
           commentable_type: "Question",
@@ -320,13 +320,13 @@ Question.all.each do
 end
 
 Question.all.each do |question|
-  20.times do
-    question.votes.create(voter: User.all.sample, count: rand(-199..199) / 100)
+  10.times do
+    question.votes.create(voter: User.all[1..-1].sample, count: [-1,-1,0,1,1,1,1,1].sample)
   end
 end
 
 Answer.all.each do |answer|
-  20.times do
-    answer.votes.create(voter: User.all.sample, count: rand(-199..199) / 100)
+  10.times do
+    answer.votes.create(voter: User.all[1..-1].sample, count: [-1,-1,0,1,1,1,1,1].sample)
   end
 end

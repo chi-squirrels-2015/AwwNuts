@@ -8,4 +8,8 @@ class Answer < ActiveRecord::Base
   has_many :voters, through: :votes, source: :voter
 
   validates :content, :author, presence: true
+
+  def vote_count
+    votes.pluck(:count).reduce(:+) || 0
+  end
 end
