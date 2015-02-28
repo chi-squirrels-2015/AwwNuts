@@ -4,5 +4,8 @@ class Answer < ActiveRecord::Base
 
   has_many :comments, as: :commentable
 
+  has_many :votes, as: :votable
+  has_many :voters, through: :votes, source: :voter
+
   validates :content, :author, presence: true
 end

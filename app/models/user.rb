@@ -5,11 +5,23 @@ class User < ActiveRecord::Base
   has_many :answers, foreign_key: :author_id
   has_many :answered_questions, through: :answers, source: "question"
 
+  has_many :cast_votes, class_name: "Vote", foreign_key: :voter_id
+
+  has_many :received_question_votes, through: :questions, source: :votes
+  has_many :received_answer_votes, through: :answers, source: :votes
+
+
+  before_create :default_avatar_url
   before_validation :downcase_email
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: { with: /\w+@\w+\.\w+/i }
   validates :avatar_url, format: { with: /\Ahttps?:\/\//i }, allow_blank: true
+
+
+  def total_votes
+    self.received_question_votes.count + self.received_answer_votes.count
+  end
 
   def full_name
     "#{first_name} #{last_name}".titleize
