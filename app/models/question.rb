@@ -9,4 +9,7 @@ class Question < ActiveRecord::Base
 
   validates :author, :title, :content, presence: true
 
+  def vote_count
+    votes.pluck(:count).reduce(:+)
+  end
 end

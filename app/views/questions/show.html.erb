@@ -10,7 +10,11 @@
           <span class="number"><%= @question.comments.count %></span>comments
         </div>
         <div class="stat col-md-12">
-          <span class="number"><%= @question.votes.count %></span>votes
+          <span class="number"><%= @question.vote_count %></span>votes
+          <div class="row">
+            <%= link_to "⇡", question_upvote_path(@question), method: :post, class: "btn-xs btn-success" %>
+            <%= link_to "⇣", question_downvote_path(@question), method: :post, class: "btn-xs btn-danger" %>
+          </div>
         </div>
       </div>
       <div class="col-md-8">

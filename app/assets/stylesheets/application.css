@@ -40,6 +40,7 @@
   margin-right: 10px;
 }
 
+<<<<<<< HEAD
 .dropdown a:hover img {
   border: 1px solid #000;
 }
@@ -69,7 +70,7 @@ padding: 10px 15px;
 }
 
 table.center {
- margin-left:auto; 
+ margin-left:auto;
  margin-right:auto;
  font-size: 150%;
 }
