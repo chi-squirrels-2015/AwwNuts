@@ -25,11 +25,15 @@
       <div class="col-md-8">
         <div class="question-content">
           <%= @question.content %>
+      <%= render partial: "/users/show", locals: { type: @question } %>
         </div>
+      <div class="question-comments col-md-12">
+        <%= render partial: "/comments/show", locals: { comments: @question.comments } %>
+      </div>
       </div>
     </div>
   </div>
   <% if @question.answers %>
-    <%= render partial: "/answers/show", locals: { question: @question } %>
+  <%= render partial: "/answers/show", locals: { question: @question } %>
   <% end %>
 </div>
