@@ -10,6 +10,6 @@ class Question < ActiveRecord::Base
   validates :author, :title, :content, presence: true
 
   def vote_count
-    votes.pluck(:count).reduce(:+)
+    votes.pluck(:count).reduce(:+) || 0
   end
 end
