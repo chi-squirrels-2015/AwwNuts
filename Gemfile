@@ -33,6 +33,8 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 gem 'faker'
 
+gem 'redcarpet'
+
 group :development, :test do
   gem 'simplecov'
   gem 'rspec-rails'
