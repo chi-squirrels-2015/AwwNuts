@@ -1,0 +1,12 @@
+<div class="answer">
+  <h2>Answers</h2>
+  <div class="col-md-8">
+    <% question.answers.each do |answer| %>
+      <div class="answer-content">
+        <p><%= answer.content %></p>
+        <p><%= time_ago_in_words(answer.created_at) %> ago</p>
+        <%= render partial: "/users/show", locals: { type: answer } %>
+      </div>
+    <% end %>
+  </div>
+</div>

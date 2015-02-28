@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = current_user
     if logged_in?
       render :dashboard
     else
