@@ -1,32 +1,27 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'faker'
 
-
-#NEED TO ADD AUTHOR!
-author = User.create!(username: "Matt 'Syntax Error' Gray",
+asker = User.create!(username: "Matt 'Syntax Error' Gray",
                          email: "graymatthew3@gmail.com",
                       password: "sweatpants")
 
+answerer = User.create!(username: "A-aron",
+                          email: "a-aron@gmail.com",
+                          password: "iamtheonewhoanswers")
 
 question1 = Question.create!( title: "Get data attribute for all matched elements?", content: "Say I have HTML like below:\n
   <div class='test' data-file='1'></div>\n
   <div class='test' data-file='2'></div>\n
-  I would like to get a list of all the data-file values. I tried using, $(.test).data('file') but this only returns 1 which makes sense according to jQuery's documentation which states it will return ...the value at the named data store for the first element in the set of matched elements Emphasis on first. Is there any way to tell jQuery to pull all of the data values into an array?", author: author)
+  I would like to get a list of all the data-file values. I tried using, $(.test).data('file') but this only returns 1 which makes sense according to jQuery's documentation which states it will return ...the value at the named data store for the first element in the set of matched elements Emphasis on first. Is there any way to tell jQuery to pull all of the data values into an array?", author: asker)
 
-question2 = Question.create!( title: "Is it possible to get 0 by subtracting two unequal floating point numbers?", content: "Is it possible to get division by 0 (or infinity)? In normal cases it will not, of course. But what if a and b are very close, can (a-b) result in being 0 due to precision of the calculation? Note that this question is for Java, but I think it will apply to most programming languages.", author: author)
+question2 = Question.create!( title: "Is it possible to get 0 by subtracting two unequal floating point numbers?", content: "Is it possible to get division by 0 (or infinity)? In normal cases it will not, of course. But what if a and b are very close, can (a-b) result in being 0 due to precision of the calculation? Note that this question is for Java, but I think it will apply to most programming languages.", author: asker)
 
-question3 = Question.create!( title: "iOS app 'The application could not be verified' only on one device", content: "I have two iphone devices( 4s and 5 ) connected to my computer and i am trying to install an application in both the devices. It installs pretty well in iphone 5 but it gives an error 'The application could not be verified.' when attempted to install in the iphone 4s device. The UDIDs of both the devices have been added in the provisioning profile generated for the application. Also, to add a note, I have just updated my iphone version to 8.1.3 in my 4s device. I am not sure though if the error has anything to do with it. Any help on this would be much appreciated. I have been stuck on this for some time now.", author: author)
+question3 = Question.create!( title: "iOS app 'The application could not be verified' only on one device", content: "I have two iphone devices( 4s and 5 ) connected to my computer and i am trying to install an application in both the devices. It installs pretty well in iphone 5 but it gives an error 'The application could not be verified.' when attempted to install in the iphone 4s device. The UDIDs of both the devices have been added in the provisioning profile generated for the application. Also, to add a note, I have just updated my iphone version to 8.1.3 in my 4s device. I am not sure though if the error has anything to do with it. Any help on this would be much appreciated. I have been stuck on this for some time now.", author: asker)
 
-question4 = Question.create!( title: "What is indexed monad?", content: "What is indexed monad and the motivation for this monad? I have read that it helps to keep track of the side effects. But the type signature and documentation doesn't lead me to anywhere. What would be an example of how it can help to keep track of side effects (or any other valid example)?", author: author)
+question4 = Question.create!( title: "What is indexed monad?", content: "What is indexed monad and the motivation for this monad? I have read that it helps to keep track of the side effects. But the type signature and documentation doesn't lead me to anywhere. What would be an example of how it can help to keep track of side effects (or any other valid example)?", author: asker)
 
-question5 = Question.create!( title: "What happens to a pointer that points to an element in a vector when I shuffle it?", content: "I have a std::vector<int> and a pointer int* that points to an element in the vector. Let’s say the pointer points to the third element: pointer=&vector.at(2). If I now shuffle the vector, will it still point to the same element (the third) or will it point the the new location where the element which used to be the third has now moved? After that, I’d like to make the question a little bit more general: How do pointers and iterators to elements in a vector behave when the vector is expanded or reduced?", author: author)
+question5 = Question.create!( title: "What happens to a pointer that points to an element in a vector when I shuffle it?", content: "I have a std::vector<int> and a pointer int* that points to an element in the vector. Let’s say the pointer points to the third element: pointer=&vector.at(2). If I now shuffle the vector, will it still point to the same element (the third) or will it point the the new location where the element which used to be the third has now moved? After that, I’d like to make the question a little bit more general: How do pointers and iterators to elements in a vector behave when the vector is expanded or reduced?", author: asker)
 
-question6 = Question.create!( title: "Fix merge conflicts in Git?", content: "Is there a good way to explain how to resolve merge conflicts in Git?", author: author)
+question6 = Question.create!( title: "Fix merge conflicts in Git?", content: "Is there a good way to explain how to resolve merge conflicts in Git?", author: asker)
 
 
 #Answer Seeds ------------------------------------------------------------------------------
@@ -36,14 +31,14 @@ q1a1 = Answer.create(content: "You can create temporary array for that purpose: 
                           myArray.push( $( this ).data( 'file' ) );\n
                       });\n
                       console.log( myArray );'",
-              author: author,
+              author: answerer,
               question: question1)
 
 q1a2 = Answer.create(content: "Of course! Use .map \n
                       'var dataValues = $('.test[data-file]'').map(function() {\n
                       return $(this).data('file');\n
                       }).get();'",
-              author: author,
+              author: answerer,
               question: question1)
 
 
@@ -55,7 +50,7 @@ If an FPU works with denormalized numbers, subtracting unequal numbers can never
 For other languages, it depends. In C or C++, for example, IEEE 754 support is optional.
 
 That said, it is possible for the expression 2 / (a - b) to overflow, for example with a = 5e-308 and b = 4e-308.",
-              author: author,
+              author: answerer,
               question: question2)
 
 q2a2 = Answer.create(content: "As a workaround, what about the following?\n
@@ -70,17 +65,17 @@ q2a2 = Answer.create(content: "As a workaround, what about the following?\n
                                        return 2 / c;
                                    }
                               }",
-              author: author,
+              author: answerer,
               question: question2)
 
 q3a1 = Answer.create(content: "I had something similar happen to me just recently. I updated my iPhone to 8.1.3, and started getting the 'application could not be verified' error message from Xcode on an app that installed just fine on the same iOS device from the same Mac just a few days ago.
 
 I deleted the app from the device, restarted Xcode, and the app subsequently installed on the device just fine without any error message. Not sure if deleting the app was the fix, or the problem was due to 'the phase of the moon'.",
-              author: author,
+              author: answerer,
               question: question3)
 
-q3a1 = Answer.create(content: "Deleting app worked for me, thank you hotpaw2. I had the 'Application could not be verified' error in xcode after 8.1.3 iOS update, worked after deleting app from phone. Cannot comment because I do not have the minimum 50 posts...",
-              author: author,
+q3a2 = Answer.create(content: "Deleting app worked for me, thank you hotpaw2. I had the 'Application could not be verified' error in xcode after 8.1.3 iOS update, worked after deleting app from phone. Cannot comment because I do not have the minimum 50 posts...",
+              author: answerer,
               question: question3)
 
 
@@ -195,7 +190,7 @@ bindIx :: forall i. m a i -> (forall j. a j -> m b j) -> m b i
 These foralls have opposite polarity. We choose initial state i, and a computation which can start at i, with postcondition a. The world chooses any intermediate state j it likes, but it must give us the evidence that postcondition b holds, and from any such state, we can carry on to make b hold. So, in sequence, we can achieve condition b from state i. By releasing our grip on the '"'after'"' states, we can model unpredictable computations.
 
 Both IxMonad and MonadIx are useful. Both model validity of interactive computations with respect to changing state, predictable and unpredictable, respectively. Predictability is valuable when you can get it, but unpredictability is sometimes a fact of life. Hopefully, then, this answer gives some indication of what indexed monads are, predicting both when they start to be useful and when they stop.",
-              author: author,
+              author: answerer,
               question: question4)
 
 q5a1 = Answer.create(content: "The pointer will continue to point to the same location, so when you shuffle, it'll point to whatever element has been moved into the location you specified.
@@ -205,19 +200,19 @@ When you expand the size of a vector, all existing pointers and iterators into t
 Reducing the size of a vector will depend on exactly how you do that. One way is to create a temporary vector as a copy of the current vector, swap the two, then destroy the temporary (usually implicitly, by letting it go out of scope). If you do this, the pointers will be into the temporary, and be invalidated when it's destroyed.
 
 If you use shrink_to_fit that (probably) won't invalidate iterators/pointers, but may not have any effect (the standard specifies that it's a non-binding request, and doesn't say anything about it invalidating iterators/pointers).",
-              author: author,
+              author: answerer,
               question: question5)
 
 q5a2 = Answer.create(content: "If the vector is shuffled without being resized then the pointer still points to the same location , which will probably contain a different element.
 
 If the vector is resized to be larger, then the pointer is said to be 'invalidated' and it has the same status as an uninitialized pointer, i.e. evaluating it or trying to read through it causes undefined behaviour.",
-              author: author,
+              author: answerer,
               question: question5)
 
 q6a1 = Answer.create(content: "Try: git mergetool
 
 It opens a GUI that steps you through each conflict, and you get to choose how to merge. Sometimes it requires a bit of hand editing afterwards, but usually it's enough by itself. It is much better than doing the whole thing by hand certainly.",
-              author: author,
+              author: answerer,
               question: question6)
 
 q6a2 = Answer.create(content: "Here's a probable use-case, from the top:
@@ -259,6 +254,63 @@ q6a2 = Answer.create(content: "Here's a probable use-case, from the top:
                                * branch            master     -> FETCH_HEAD
                               Already up-to-date.
                               Ta-da!",
-              author: author,
+              author: answerer,
               question: question6)
+
+
+voters = [asker, answerer]
+
+50.times do
+  asker.questions.each do |question|
+    question.votes << Vote.create(count: rand(-1..1), voter: voters[1])
+    question.votes << Vote.create(count: rand(-1..1), voter: voters[0])
+
+    question.answers.each do |answer|
+      answer.votes << Vote.create(count: rand(-1..1), voter: voters[0])
+      answer.votes << Vote.create(count: rand(-1..1), voter: voters[1])
+    end
+  end
+end
+
+50.times do 
+  User.create(username: Faker::Internet.user_name,
+            first_name: Faker::Name.first_name,
+             last_name: Faker::Name.last_name,
+              password: "password",
+                 email: Faker::Internet.free_email,
+            avatar_url: Faker::Avatar.image,
+          catch_phrase: Faker::Hacker.say_something_smart )
+end
+
+(User.count * (rand(10)+1)).times do 
+  Question.create(content: Faker::Lorem.paragraph,
+                   author: User.find(rand(User.count)+1),
+                    title: Faker::Commerce.product_name)
+end
+
+Question.all.each do
+  10.times do
+    Answer.create(content: Faker::Lorem.paragraph,
+                   author: User.find(rand(User.count)+1),
+                 question: Question.find(rand(Question.count)+1))
+  end
+end
+
+Answer.all.each do
+  5.times do
+    Comment.create(content: Faker::Lorem.paragraph,
+                    author: User.find(rand(User.count)+1),
+          commentable_type: "Answer",
+            commentable_id: Answer.find(rand(Answer.count)+1).id)
+  end
+end
+
+Question.all.each do
+  5.times do
+    Comment.create(content: Faker::Lorem.paragraph,
+                    author: User.find(rand(User.count)+1),
+          commentable_type: "Question",
+            commentable_id: Question.find(rand(Question.count)+1).id)
+  end
+end
 

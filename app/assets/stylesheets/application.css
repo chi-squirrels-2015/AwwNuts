@@ -18,6 +18,7 @@
 
 .navbar {
   border-radius: 0;
+  height: 60px;
 }
 
 .navbar-brand {
@@ -31,4 +32,61 @@
 
 .dropdown a:hover img {
   border: 1px solid #000;
+}
+
+.stat {
+  width: 80px;
+  border-right: 1px solid #eee;
+  text-align: center;
+  padding: 10px;
+  float: left;
+}
+
+.stats div:hover {
+  background-color: #eee;
+}
+
+.date {
+  line-height: 55px;
+  float: right;
+}
+
+.stats-horizontal div:last-child {
+  border-right: none;
+}
+
+.stats-horizontal {
+  float: left;
+  margin-right: 20px;
+}
+
+.question-list-item {
+  overflow: auto;
+  padding: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.question-list-item h4 {
+  line-height: 55px;
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+
+.question {
+  padding: 40px 0;
+}
+
+.question-heading {
+  margin-bottom: 30px;
+}
+
+.question-content {
+  font-size: 18px;
+}
+
+.number {
+  font-size: 16px;
+  display: block;
+  line-height: 20px;
 }

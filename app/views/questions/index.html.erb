@@ -1,7 +1,20 @@
-<% @questions.each do |question| %>
-<div>
-<%= question.title %>
-<%= question.content %> 
-<%=link_to "Delete", question_path(question.id), :method => :delete %> 
+<div class="container">
+  <h1>Recently Asked Questions:</h1>
+  <% @questions.each do |question| %>
+    <div class="col-sm-12 question-list-item">
+      <div class="stats-horizontal">
+        <div class="stat">
+          <span class="number"><%= question.answers.count %></span>answers
+        </div>
+        <div class="stat">
+          <span class="number"><%= question.comments.count %></span>comments
+        </div>
+        <div class="stat">
+          <span class="number"><%= question.votes.count %></span>votes
+        </div>
+      </div>
+      <h4><%= link_to question.title, question_path(question) %></h4>
+      <span class="date"><%= time_ago_in_words(question.created_at) %> ago</span>
+    </div>
+  <% end %>
 </div>
-<% end %> 

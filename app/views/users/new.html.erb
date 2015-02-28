@@ -1,46 +1,73 @@
-<h1>Create an Account</h1>
-<% if @errors %>
-<ul>
-  <% @errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-</ul>
-<% end %>
+<div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="panel-title">Create Your AwwNuts Account</h1>
+    </div>
 
-<%= form_for @user do |f| %>
-  <div class="form-group">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <div class="panel-body">
+      <% if @errors %>
+        <% @errors.full_messages.each do |error| %>
+          <div class="alert alert-danger">
+            <%= error %>
+          </div>
+        <% end %>
+      <% end %>
+      <%= form_for @user, html: { class: "form-horizontal" } do |f| %>
+      <div class="form-group">
+        <%= f.label :first_name, class: "col-md-2 col-md-offset-1 control-label" %>
+        <div class="col-md-8">
+          <%= f.text_field :first_name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :last_name, class: "col-md-2 col-md-offset-1 control-label" %>
+        <div class="col-md-8">
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :username, class: "col-md-2 col-md-offset-1 control-label" %>
+        <div class="col-md-8">
+          <%= f.text_field :username, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, class: "col-md-2 col-md-offset-1 control-label" %>
+        <div class="col-md-8">
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, class: "col-md-2 col-md-offset-1 control-label" %>
+        <div class="col-md-8">
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, class: "col-md-3 control-label" %>
+        <div class="col-md-8">
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :avatar_url, class: "col-md-2 col-md-offset-1 control-label" %>
+        <div class="col-md-8">
+          <%= f.text_field :avatar_url, class: "form-control", value: nil %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :catch_phrase, class: "col-md-2 col-md-offset-1 control-label" %>
+        <div class="col-md-8">
+          <%= f.text_field :catch_phrase, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.submit "Create Account", class: "btn btn-primary", type: "submit" %>
+          <%= f.submit "Cancel", class: "btn btn-default", type: "reset" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="form-group">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="form-group">
-    <%= f.label :avatar_url %>
-    <%= f.text_field :avatar_url, value: nil %>
-  </div>
-  <div class="form-group">
-    <%= f.label :catch_phrase %>
-    <%= f.text_field :catch_phrase %>
-  </div>
-  <div class="form-group">
-    <%= f.submit "Create Account" %>
-  </div>
-<% end %>
+</div>
