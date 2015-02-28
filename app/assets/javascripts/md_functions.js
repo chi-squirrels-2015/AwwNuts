@@ -1,6 +1,6 @@
-function md_insert_h1_to(element) {
-  insertText(element, "\n# ", "\n", "H1")
-}
+// function md_insert_h1_to(element) {
+//   insertText(element, "\n# ", "\n", "H1")
+// }
 
 // function md_insert_h2_to(element) {
 //   insertText(element, "\n## ", "\n", "H2")
