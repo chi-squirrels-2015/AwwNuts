@@ -34,7 +34,7 @@
   border: 1px solid #000;
 }
 
-.stats div {
+.stat {
   width: 80px;
   border-right: 1px solid #eee;
   text-align: center;
@@ -51,11 +51,11 @@
   float: right;
 }
 
-.stats div:last-child {
+.stats-horizontal div:last-child {
   border-right: none;
 }
 
-.stats {
+.stats-horizontal {
   float: left;
   margin-right: 20px;
 }
@@ -66,15 +66,23 @@
   border-bottom: 1px solid #eee;
 }
 
-.question-list-item .question-content {
-  font-size: 16px;
-}
-
 .question-list-item h4 {
   line-height: 55px;
   padding: 0;
   margin: 0;
   float: left;
+}
+
+.question {
+  padding: 40px 0;
+}
+
+.question-heading {
+  margin-bottom: 30px;
+}
+
+.question-content {
+  font-size: 18px;
 }
 
 .number {
