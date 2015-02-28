@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     post "/downvote" => 'questions#downvote'
 
     resources :answers, only: [:new, :create, :edit, :update, :destroy] do
+      post "/upvote"   => 'answers#upvote'
+      post "/downvote" => 'answers#downvote'
       resources :comments, only: [:new, :create]
     end
   end
