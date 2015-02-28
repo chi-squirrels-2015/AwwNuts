@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   def new
     @answer = Answer.new
+    render :_new
   end
 
   def create
@@ -13,7 +14,7 @@ class AnswersController < ApplicationController
       redirect_to question_answers_path
     else
       @errors = @answer.errors
-      render :new
+      render :_new
     end
   end
 

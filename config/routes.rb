@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   resources :questions do
     resources :comments, only: [:new, :create]
+    post "/upvote"   => 'questions#upvote'
+    post "/downvote" => 'questions#downvote'
+
     resources :answers, only: [:new, :create, :edit, :update, :destroy] do
       resources :comments, only: [:new, :create]
     end

@@ -9,7 +9,7 @@ describe SessionsController do
   end
 
   describe 'POST #create' do
-    let!(:user) { User.create!(email: "test@test.com", password: "password", username: "fakeUser") }
+    let!(:user) { User.create!(first_name: "John", last_name: "Doe", email: "test@test.com", password: "password", username: "fakeUser") }
 
     context "when given a matching email/password combination" do
       before do
@@ -45,9 +45,9 @@ describe SessionsController do
   end
 
   describe 'GET #destroy' do
-    it "redirects to the login_path" do
+    it "redirects to the root" do
       get :destroy
-      expect(response).to redirect_to(login_path)
+      expect(response).to redirect_to(root_path)
     end
 
     it "clears the session" do

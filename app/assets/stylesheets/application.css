@@ -20,10 +20,27 @@
   padding: 5px;
   margin: 10px;
   border-top: 1px solid #333;
+  overflow: auto;
+}
+
+.answer-content > .owner {
+  display: block;
+  float: right;
+  padding-bottom: 10px;
 }
 
 .answer-content:first-child {
   border-top: 0;
+}
+
+.answer-comments .comment-content {
+  background: #EEE;
+  border-top: 1px solid lightgrey;
+}
+
+.question-comments .comment-content {
+  background: #EEE;
+  border-top: 1px solid lightgrey;
 }
 
 .navbar {
@@ -40,8 +57,59 @@
   margin-right: 10px;
 }
 
+<<<<<<< HEAD
 .dropdown a:hover img {
   border: 1px solid #000;
+}
+
+.sidebar {
+z-index: 1;
+position: absolute;
+width: 250px;
+margin-top: 51px;
+}
+
+.sidebar .sidebar-nav.navbar-collapse {
+padding-right: 0;
+padding-left: 0;
+}
+
+.nav {
+padding-left: 0;
+margin-bottom: 0;
+list-style: none;
+}
+
+.nav>li>a {
+position: relative;
+display: block;
+padding: 10px 15px;
+}
+
+table.center {
+ margin-left:auto;
+ margin-right:auto;
+ font-size: 150%;
+}
+
+.panel-blue {
+	background-color: #337ab7;
+	color: white;
+}
+
+.panel-green {
+	background-color: #5cb85c;
+	color: white;
+}
+
+.panel-yellow {
+	background-color: #FFCC00;
+	color: white;
+}
+
+.panel-gray {
+  background-color: #666666;
+  color: white;
 }
 
 .stat {
@@ -93,6 +161,20 @@
 
 .question-content {
   font-size: 18px;
+  margin-bottom: 5%;
+}
+
+.question-content > .owner {
+  display: block;
+  float: right;
+  padding-bottom: 10px;
+}
+
+.question-author {
+  padding: 0;
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-top: 10px;
 }
 
 .number {

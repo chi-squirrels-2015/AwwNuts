@@ -1,10 +1,15 @@
 require 'faker'
 
-asker = User.create!(username: "Matt 'Syntax Error' Gray",
+asker = User.create!(first_name: "Matt",
+                     last_name: "Gray",
+                      username: "Matt 'Syntax Error' Gray",
                          email: "graymatthew3@gmail.com",
-                      password: "sweatpants")
+                      password: "sweatpants",
+                      avatar_url: "http://img2.wikia.nocookie.net/__cb20121014221625/thelaboffrankenstein/images/e/e2/Buff_squirrel.jpg")
 
-answerer = User.create!(username: "A-aron",
+answerer = User.create!(first_name: "Aaron",
+                        last_name: "Harris",
+                        username: "A-aron",
                           email: "a-aron@gmail.com",
                           password: "iamtheonewhoanswers")
 
@@ -272,7 +277,7 @@ voters = [asker, answerer]
   end
 end
 
-50.times do 
+50.times do
   User.create(username: Faker::Internet.user_name,
             first_name: Faker::Name.first_name,
              last_name: Faker::Name.last_name,
@@ -282,7 +287,7 @@ end
           catch_phrase: Faker::Hacker.say_something_smart )
 end
 
-(User.count * (rand(10)+1)).times do 
+(User.count * (rand(10)+1)).times do
   Question.create(content: Faker::Lorem.paragraph,
                    author: User.find(rand(User.count)+1),
                     title: Faker::Commerce.product_name)
@@ -314,3 +319,14 @@ Question.all.each do
   end
 end
 
+Question.all.each do |question|
+  20.times do
+    question.votes.create(voter: User.all.sample, count: rand(-199..199) / 100)
+  end
+end
+
+Answer.all.each do |answer|
+  20.times do
+    answer.votes.create(voter: User.all.sample, count: rand(-199..199) / 100)
+  end
+end
