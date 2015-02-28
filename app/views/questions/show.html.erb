@@ -20,4 +20,18 @@
       </div>
     </div>
   </div>
+  <% if @question.answers %>
+    <div class="answer">
+      <h2>Answers</h2>
+      <div class="col-md-8">
+        <% @question.answers.each do |answer| %>
+          <div class="answer-content">
+            <p><%= answer.content %></p>
+            <%= render partial: "/users/show", locals: { type: answer } %>
+            <p><%= answer.created_at %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
