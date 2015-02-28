@@ -4,8 +4,7 @@ asker = User.create!(first_name: "Matt",
                      last_name: "Gray",
                       username: "Matt 'Syntax Error' Gray",
                          email: "graymatthew3@gmail.com",
-                      password: "sweatpants",
-                      avatar_url: "http://img2.wikia.nocookie.net/__cb20121014221625/thelaboffrankenstein/images/e/e2/Buff_squirrel.jpg")
+                      password: "sweatpants")
 
 answerer = User.create!(first_name: "Aaron",
                         last_name: "Harris",
@@ -262,22 +261,7 @@ q6a2 = Answer.create(content: "Here's a probable use-case, from the top:
               author: answerer,
               question: question6)
 
-
-# voters = [asker, answerer]
-
-
-#   asker.questions.each do |question|
-#     question.votes << Vote.create(count: rand(-1..1), voter: voters[1])
-#     question.votes << Vote.create(count: rand(-1..1), voter: voters[0])
-
-#     question.answers.each do |answer|
-#       answer.votes << Vote.create(count: rand(-1..1), voter: voters[0])
-#       answer.votes << Vote.create(count: rand(-1..1), voter: voters[1])
-#     end
-#   end
-# end
-
-20.times do
+10.times do
   User.create(username: Faker::Internet.user_name,
             first_name: Faker::Name.first_name,
              last_name: Faker::Name.last_name,
@@ -287,46 +271,46 @@ q6a2 = Answer.create(content: "Here's a probable use-case, from the top:
           catch_phrase: Faker::Hacker.say_something_smart )
 end
 
-(User.count * 2).times do
+(User.count * 5).times do
   Question.create(content: Faker::Lorem.paragraph,
-                   author: User.find(rand(User.count)+1),
+                   author: User.all.sample,
                     title: Faker::Commerce.product_name)
 end
 
-Question.all.each do
-  5.times do
-    Answer.create(content: Faker::Lorem.paragraph,
-                   author: User.find(rand(User.count)+1),
-                 question: Question.find(rand(Question.count)+1))
-  end
-end
-
-Answer.all.each do
-  5.times do
-    Comment.create(content: Faker::Lorem.paragraph,
-                    author: User.find(rand(User.count)+1),
-          commentable_type: "Answer",
-            commentable_id: Answer.find(rand(Answer.count)+1).id)
-  end
-end
-
-Question.all.each do
-  3.times do
-    Comment.create(content: Faker::Lorem.paragraph,
-                    author: User.find(rand(User.count)+1),
-          commentable_type: "Question",
-            commentable_id: Question.find(rand(Question.count)+1).id)
-  end
-end
 
 Question.all.each do |question|
-  10.times do
-    question.votes.create(voter: User.all[1..-1].sample, count: [-1,-1,0,1,1,1,1,1].sample)
+  rand(3..10).times do
+    Answer.create(content: Faker::Lorem.paragraph,
+                  author: User.all.sample,
+                  question: Question.all.sample)
   end
 end
 
 Answer.all.each do |answer|
-  10.times do
-    answer.votes.create(voter: User.all[1..-1].sample, count: [-1,-1,0,1,1,1,1,1].sample)
+  5.times do
+    Comment.create(content: Faker::Lorem.paragraph,
+                   author: User.all.sample,
+                   commentable: answer)
+  end
+end
+
+
+Question.all.each do |question|
+  5.times do
+    Comment.create(content: Faker::Lorem.paragraph,
+                   author: User.all.sample,
+                   commentable: question )
+  end
+end
+
+Question.all.each do |question|
+  20.times do
+    question.votes.create(voter: User.all.sample, count: [-1,-1,0,0,1,1,1,1].sample)
+  end
+end
+
+Answer.all.each do |answer|
+  20.times do
+    answer.votes.create(voter: User.all.sample, count: [-1,-1,0,0,1,1,1,1].sample)
   end
 end

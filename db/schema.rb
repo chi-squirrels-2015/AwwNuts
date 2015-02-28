@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227223410) do
+ActiveRecord::Schema.define(version: 20150228223002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150227223410) do
     t.string   "last_name"
     t.string   "password_digest"
     t.string   "email"
-    t.string   "avatar_url",      default: "http://movingkidsforward.org/wp-content/uploads/2013/05/profile_default800x600.jpg"
+    t.string   "avatar_url",      default: "https://robohash.org/o24ruwlekfj239487wejfn23498ty3ejfbn3oity483fgjn", null: false
     t.string   "catch_phrase"
     t.datetime "created_at"
     t.datetime "updated_at"
