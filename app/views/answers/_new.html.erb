@@ -1,10 +1,10 @@
-<%= form_for @answer do |f| %>
-  <div class="answer-form-group">
-    <%= f.label :content %>
-    <%= f.text_area :content, size: "30x10" %>
-  </div>
+<%= form_for [question, answer] do |f| %>
+<div class="answer-form-group">
+  <%= f.label :content %>
+  <%= f.text_area :content, size: "30x10" %>
+</div>
 
-  <div class="answer-form-group">
-    <%= f.submit %>
-  </div>
+<div class="answer-form-group">
+  <%= f.submit %>
+</div>
 <% end %>

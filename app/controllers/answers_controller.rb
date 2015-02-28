@@ -11,10 +11,10 @@ class AnswersController < ApplicationController
     @answer.author = current_user
 
     if @answer.save
-      redirect_to question_answers_path
+      redirect_to @question
     else
       @errors = @answer.errors
-      render :_new
+      redirect_to @question
     end
   end
 
