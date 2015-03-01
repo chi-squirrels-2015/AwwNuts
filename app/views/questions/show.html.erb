@@ -6,7 +6,7 @@
       </div>
       <div class="question-heading col-md-11">
         <h1><%= @question.title.humanize %></h1>
-        <h4><%= @question.author.username %></h4>
+        <h4><%= link_to @question.author.username, user_path(@question.author.id) %></h4>
       </div>
     </div>
     <div class="row">
@@ -39,8 +39,15 @@
         <%= link_to "Hide Comments", "", class: "hide-question-comments", style: "display: none;" %>
 
         <div class="question-comments col-md-12" style="display: none;">
-          <%= render partial: "/comments/show", locals: { comments: @question.comments } %>
+          <div class="comments">
+            <% @question.comments.each do |comment| %>
+            <div class="comment-content">
+              <%= render partial: "/comments/show", locals: { comment: comment } %>
+            </div>   
+            <% end %>
+          </div>
         </div>
+
       </div>
     </div>
   </div>

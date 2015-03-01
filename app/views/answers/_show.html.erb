@@ -17,12 +17,31 @@
 </div>
 <div class="col-md-10 answer-content">
   <p><%= answer.content %></p>
-  <p><%= link_to answer.author.username %> - <%= time_ago_in_words(answer.created_at) %> ago</p>
+  <p><%= link_to answer.author.username, user_path(answer.author.id) %> - <%= time_ago_in_words(answer.created_at) %> ago</p>
 
-  <%= link_to "Show Comments", "", class: "show-answer-comments" %>
-  <%= link_to "Hide Comments", "", class: "hide-answer-comments", style: "display: none;" %>
+  <div>
+    <div class="hide-show-comments">
+      <p><%= link_to "Show Comments", "", class: "show-answer-comments" %></p>
+      <p><%= link_to "Hide Comments", "", class: "hide-answer-comments", style: "display: none;" %></p>
+    </div>
 
-  <div class="answer-comments col-md-12" style="display: none;">
-    <%= render partial: "/comments/show", locals: { comments: answer.comments } %>
+    <div class="answer-comments col-md-12" style="display: none;">
+     <div class="comments">
+       <% question.comments.each do |comment| %>
+        <%= render partial: "/comments/show", locals: { comment: comment } %>
+      <% end %>
+    </div>  
+    
+    <div class="new-comment-form-div" data-answer-id=<%= answer.id %> data-question-id=<%= question.id %> style="display: none;">
+      <%= render partial: "/comments/new", locals: {question: question, answer: answer, comment: answer.comments.build } %>
+    </div>
+
+    <div class="add-comments">
+      <%= link_to "Add Comment", "", class: "show-add-comment" %>
+    </div>
+
   </div>
+</div>
+
+
 </div>

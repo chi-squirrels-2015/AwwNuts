@@ -4,10 +4,12 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @comments = Comment.all
     @comment = Comment.new(comment_params)
     @comment.author = User.find(current_user.id)
+
     if @comment.save
-      render :_show, layout: false
+      render :_show, locals: { comment: @comment, comments: @comments }, layout: false
     else
       @error = @comment.errors
       render :new

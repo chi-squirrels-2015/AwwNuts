@@ -206,3 +206,16 @@ table.center {
 .avatar {
   margin-bottom: 5px;
 }
+
+.hide-show-comments {
+  float: right;
+}
+
+.add-comments {
+  display: block;
+  float: right;
+}
+
+/*.new-comment-form-div {
+  float: right;
+}*/

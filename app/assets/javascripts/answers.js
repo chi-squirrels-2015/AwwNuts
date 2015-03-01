@@ -4,7 +4,7 @@ $(document).ready(function() {
   $(".new_answer").on("submit", function(e){
     e.preventDefault();
 
-    var questionId = $(".answer-form").data("question-id")
+    var questionId = $(".answer-form").data("question-id");
 
     var request = $.ajax({
       url:  "/questions/" + questionId + "/answers",
@@ -13,7 +13,6 @@ $(document).ready(function() {
     })
 
     request.done(function(response) {
-      console.log(response)
       $("#single-answer").append(response)
       $(".answer-form").hide();
     });
@@ -42,17 +41,19 @@ $(document).ready(function() {
   $(".show-answer-comments").on("click", function(e){
     e.preventDefault();
 
-    $(".answer-comments").show();
-    $(".show-answer-comments").hide();
-    $(".hide-answer-comments").show();
+    console.log($(e.target).closest("div").find(".hide-answer-comments"))
+
+    $(e.target).closest("div").next().show();
+    $(e.target).closest(".show-answer-comments").hide();
+    $(e.target).closest("div").find(".hide-answer-comments").show();
   })
 
   $(".hide-answer-comments").on("click", function(e){
     e.preventDefault();
 
-    $(".answer-comments").hide();
-    $(".show-answer-comments").show();
-    $(".hide-answer-comments").hide();
+    $(e.target).closest("div").next().hide();
+    $(e.target).closest("div").find(".show-answer-comments").show();
+    $(e.target).closest(".hide-answer-comments").hide();
   })
 
 });
