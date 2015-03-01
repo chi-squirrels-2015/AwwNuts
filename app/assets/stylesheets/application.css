@@ -15,6 +15,7 @@
  *= require_tree .
  *= require_self
  */
+
 .answer-content {
   background: #EEE;
   padding-bottom: 5px;
@@ -174,6 +175,10 @@ table.center {
   margin-top: 10px;
   padding-left: 30px;
   padding-top: 10px;
+}
+
+.preview {
+  display: none;
 }
 
 .number {

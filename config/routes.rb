@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root 'questions#index'
 
+  post "/questions/temp" => 'questions#temp'
+
   resources :users, only: [:new, :create, :show]
 
   resources :questions do
@@ -27,6 +29,8 @@ Rails.application.routes.draw do
   get  "/login"  => 'sessions#new'
   post "/login"  => 'sessions#create'
   get  "/logout" => 'sessions#destroy'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
