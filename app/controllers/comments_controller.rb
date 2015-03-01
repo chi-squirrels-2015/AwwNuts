@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def new
     @comment = Comment.new
+    render :_new_answer_comment #this should be refacorted to one form
   end
 
   def create
@@ -11,7 +12,7 @@ class CommentsController < ApplicationController
       render :_show, locals: { comment: @comment, comments: @comments }, layout: false
     else
       @error = @comment.errors
-      render :new
+      render :_new_answer_comment #need to add a conditional to check the commentable type and render the correct form
     end
   end
 
