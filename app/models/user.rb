@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :questions, foreign_key: :author_id
   has_many :answers, foreign_key: :author_id
+  has_many :comments, foreign_key: :author_id
   has_many :answered_questions, through: :answers, source: "question"
 
   has_many :cast_votes, class_name: "Vote", foreign_key: :voter_id

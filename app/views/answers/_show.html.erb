@@ -1,29 +1,47 @@
-<div class="answer">
-  <h2>Answers</h2>
-  <div class="col-md-8">
-    <% question.answers.each do |answer| %>
-      <div class="col-md-2">
-        <div class="stat">
-          <span class="number vote_count"><%= answer.vote_count %></span>votes
-          <div class="row">
-            <% if logged_in? %>
-              <%= link_to "⇡", question_answer_upvote_path(question, answer), method: :post, remote: true, class: "upvote btn-xs btn-success" %>
-              <%= link_to "⇣", question_answer_downvote_path(question, answer), method: :post, remote: true, class: "downvote btn-xs btn-danger" %>
-            <% else %>
-              <%= link_to "⇡", "#", class: "btn-xs btn-default" %>
-              <%= link_to "⇣", "#", class: "btn-xs btn-default" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-10 answer-content">
-        <p><%= answer.content %></p>
-        <p><%= time_ago_in_words(answer.created_at) %> ago</p>
-        <%= render partial: "/users/show", locals: { type: answer } %>
-        <div class="answer-comments col-md-12">
-          <%= render partial: "/comments/show", locals: { comments: answer.comments } %>
-        </div>
-      </div>
-    <% end %>
+<div class="col-md-2">
+  <div class="stat">
+    <div class="avatar">
+      <img height="30" width="30" src="<%= answer.author.avatar_url %>" />
+    </div>
+    <span class="number vote_count"><%= answer.vote_count %></span>votes
+    <div class="row">
+      <% if logged_in? %>
+      <%= link_to "⇡", question_answer_upvote_path(question, answer), method: :post, remote: true, class: "upvote btn-xs btn-success" %>
+      <%= link_to "⇣", question_answer_downvote_path(question, answer), method: :post, remote: true, class: "downvote btn-xs btn-danger" %>
+      <% else %>
+      <%= link_to "⇡", "#", class: "btn-xs btn-default" %>
+      <%= link_to "⇣", "#", class: "btn-xs btn-default" %>
+      <% end %>
+    </div>
   </div>
+</div>
+<div class="col-md-10 answer-content">
+  <p><%= answer.content %></p>
+  <p><%= link_to answer.author.username, user_path(answer.author.id) %> - <%= time_ago_in_words(answer.created_at) %> ago</p>
+
+  <div>
+    <div class="hide-show-comments">
+      <p><%= link_to "Show Comments", "", class: "show-answer-comments" %></p>
+      <p><%= link_to "Hide Comments", "", class: "hide-answer-comments", style: "display: none;" %></p>
+    </div>
+
+    <div class="answer-comments col-md-12" style="display: none;">
+     <div class="comments">
+       <% answer.comments.each do |comment| %>
+        <%= render partial: "/comments/show", locals: { comment: comment } %>
+      <% end %>
+    </div>  
+
+    <div class="new-comment-form-div" data-answer-id=<%= answer.id %> data-question-id=<%= question.id %> style="display: none;">
+      <%= render partial: "/comments/new_answer_comment", locals: {question: question, answer: answer, comment: answer.comments.build } %>
+    </div>
+
+    <div class="add-comments">
+      <%= link_to "Add Comment", "", class: "show-add-comment" %>
+    </div>
+
+  </div>
+</div>
+
+
 </div>

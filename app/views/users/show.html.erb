@@ -1,0 +1,40 @@
+<div class="container">
+  <h1><img src="<%= @user.avatar_url %>" alt="" width="100" height="100"><%= @user.full_name %></h1>
+  <div class="col-md-5">
+    <div class="panel panel-info">
+     <div class="panel-heading">
+        <h3 class="panel-title">Most recent questions</h3>
+      </div>
+      <div class="panel-body text-center">
+        <% @user.questions.last(5).each do |question| %>
+          <p><%= link_to question.title, question_path(question) %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="panel panel-info">
+     <div class="panel-heading">
+        <h3 class="panel-title">Most recent answers</h3>
+      </div>
+      <div class="panel-body text-center">
+        <% @user.answers.last(5).each do |answer| %>
+          <p><%= link_to answer.question.title, question_path(answer.question) %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="panel panel-info">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">AwwNuts Stats</h3>
+      </div>
+      <div class="panel-body text-center">
+        <p><%= @user.questions.count %> questions asked</p>
+        <p><%= @user.answers.count %> answers given</p>
+        <p><%= @user.comments.count %> comments typed</p>
+        <p><%= @user.cast_votes.count %> votes casted</p>
+      </div>
+    </div>
+  </div>
+</div>
