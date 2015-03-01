@@ -30,9 +30,9 @@ describe AnswersController do
 				expect(assigns(:answer)).to eq(Answer.last)
 			end
 
-			it "redirects to the question page" do
+			it "renders the show partial" do
 				post :create, question_id: question.id, answer: {content: "Make it work."}
-				expect(response).to redirect_to(question_answers_path(question))
+				expect(response).to render_template :"answers/_show"
 			end
 		end
 	end
@@ -44,9 +44,9 @@ describe AnswersController do
 			expect(assigns(:answer).content).to eq("Make it work.")
 		end
 
-		it "re-renders the new answer form" do
+		it "redirect_to the question show page" do
 			post :create, question_id: question.id, answer: {content: "Make it work."}
-			expect(response).to render_template :_new
+			expect(response).to redirect_to question
 		end
 	end
 

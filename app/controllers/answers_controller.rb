@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
     @answer.author = current_user
 
     if @answer.save
-      redirect_to @question
+      render :_show, locals: {question: @question, answer: @answer}, layout: false
     else
       @errors = @answer.errors
       redirect_to @question
