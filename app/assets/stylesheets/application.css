@@ -219,3 +219,7 @@ table.center {
 /*.new-comment-form-div {
   float: right;
 }*/
+
+#wmd-preview-0 {
+  display: none;
+

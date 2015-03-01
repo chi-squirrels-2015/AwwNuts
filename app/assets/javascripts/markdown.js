@@ -1,73 +1,74 @@
 $(document).ready(function() {
   $('#add_h1').on("click", function(e) {
     e.preventDefault();
-    $('#question_content').val($('#question_content').val()+'#'); 
+    $('#question_content').val($('#question_content').val()+'#').focus(); 
   });
 
   $('#add_h2').on("click", function(e) {
     e.preventDefault();
-    $('#question_content').val($('#question_content').val()+'##'); 
+    $('#question_content').val($('#question_content').val()+'##').focus(); 
   });
 
   $('#add_h3').on("click", function(e) {
     e.preventDefault();
-    $('#question_content').val($('#question_content').val()+'###'); 
+    $('#question_content').val($('#question_content').val()+'###').focus(); 
   });
 
   $('#add_h4').on("click", function(e) {
     e.preventDefault();
-     $('#question_content').val($('#question_content').val()+'####'); 
+    $('#question_content').val($('#question_content').val()+'####').focus(); 
   });
 
   $('#add_h5').on("click", function(e) {
     e.preventDefault();
-    $('#question_content').val($('#question_content').val()+'#####'); 
+    $('#question_content').val($('#question_content').val()+'#####').focus(); 
   });
 
   $('#add_h6').on("click", function(e) {
     e.preventDefault();
-   $('#question_content').val($('#question_content').val()+'######'); 
+    $('#question_content').val($('#question_content').val()+'######').focus(); 
   });
 
   $('#add_em').on("click", function(e) {
     e.preventDefault();
-      $('#question_content').val($('#question_content').val()+'_'); 
+    $('#question_content').val($('#question_content').val()+'_').focus(); 
   });
 
   $('#add_strong').on("click", function(e) {
     e.preventDefault();
-      $('#question_content').val($('#question_content').val()+'**'); 
+    $('#question_content').val($('#question_content').val()+'**').focus(); 
   });
 
   $('#add_paragraph').on("click", function(e) {
     e.preventDefault();
-     $('#question_content').val($('#question_content').val()+'  '); 
+    $('#question_content').val($('#question_content').val()+'  ').focus(); 
   });
 
   $('#add_blockquote').on("click", function(e) {
     e.preventDefault();
-    $('#question_content').val($('#question_content').val()+'>'); 
+    $('#question_content').val($('#question_content').val()+'>').focus(); 
   });
 
   $('#add_unord_list').on("click", function(e) {
     e.preventDefault();
-   $('#question_content').val($('#question_content').val()+'- '); 
+    $('#question_content').val($('#question_content').val()+'- ').focus(); 
   });
 
   $('#add_ord_list').on("click", function(e) {
     e.preventDefault();
-    $('#question_content').val($('#question_content').val()+'1. '); 
+    $('#question_content').val($('#question_content').val()+'1. ').focus(); 
   });
 
   $('#add_link').on("click", function(e) {
     e.preventDefault();
-    $('#question_content').val($('#question_content').val()+'[text] (url)'); 
+    $('#question_content').val($('#question_content').val()+'[text] (url)').focus(); 
   });
 
-    $('#add_code').on("click", function(e) {
+  $('#add_code').on("click", function(e) {
     e.preventDefault();
-    $('#question_content').val($('#question_content').val()+'```code\n\n ```'); 
+    $('#question_content').val($('#question_content').val()+'```code\n\n ```').focus(); 
   });
+
 
 
 
