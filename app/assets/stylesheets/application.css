@@ -16,6 +16,17 @@
  *= require_self
  */
 
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -90px;
+}
+
 .answer-content {
   background: #EEE;
   padding-bottom: 5px;
@@ -196,11 +207,14 @@ table.center {
   line-height: 20px;
 }
 
+.push, .footer {
+  height: 90px;
+}
+
 .footer {
-  margin-top: 30px;
-  width: 100%;
-  height: 40px;
+  padding-top: 10px;
   background: lightgrey;
+  width: 100%;
 }
 
 .avatar {
