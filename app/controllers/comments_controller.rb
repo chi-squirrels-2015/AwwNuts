@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
 
     if @comment.save
       render :_show, locals: { comment: @comment, comments: @comments }, layout: false
+    else
+      render :_new_question_comment
     end
   end
 

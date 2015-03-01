@@ -6,16 +6,16 @@ describe CommentsController do
   let!(:answer) {Answer.create(answer_test_params)}
   let!(:comment) { Comment.new(comment_test_params) }
 
-
-  describe 'GET #new' do
-    context "when a comment is created on an question" do
-      it "creates a new, unsaved, comment" do
-        get :new, question_id: 1
-        expect(assigns(:comment)).to be_instance_of Comment
-        expect(assigns(:comment).id).to be_nil
-      end
-    end
-  end
+# removed new from commentController as we render this form with ajax
+  # describe 'GET #new' do
+  #   context "when a comment is created on an question" do
+  #     it "creates a new, unsaved, comment" do
+  #       get :new, question_id: 1
+  #       expect(assigns(:comment)).to be_instance_of Comment
+  #       expect(assigns(:comment).id).to be_nil
+  #     end
+  #   end
+  # end
 
   describe 'POST #create' do
     context "when valid params are passed from a question" do
@@ -39,20 +39,21 @@ describe CommentsController do
         session[:user_id] = user.id
         allow(comment).to receive(:current_user).with(:user)
         post :create, question_id: 1, comment: { content: "" }
-        expect(response).to render_template :_new_answer_comment #This should be refactored to one form.
+        expect(response).to render_template :_new_question_comment
       end
     end
   end
 
-  describe 'GET #new' do
-    context "when a comment is created on an answer" do
-      it "creates a new, unsaved, comment" do
-        get :new, question_id: 1, answer_id: 1
-        expect(assigns(:comment)).to be_instance_of Comment
-        expect(assigns(:comment).id).to be_nil
-      end
-    end
-  end
+  # removed new from commentController as we render this form with ajax
+  # describe 'GET #new' do
+  #   context "when a comment is created on an answer" do
+  #     it "creates a new, unsaved, comment" do
+  #       get :new, question_id: 1, answer_id: 1
+  #       expect(assigns(:comment)).to be_instance_of Comment
+  #       expect(assigns(:comment).id).to be_nil
+  #     end
+  #   end
+  # end
 
   describe 'POST #create' do
     context "when valid params are passed from a answer" do
@@ -76,7 +77,7 @@ describe CommentsController do
         session[:user_id] = user.id
         allow(comment).to receive(:current_user).with(:user)
         post :create, question_id: 1, answer_id: 1, comment: { content: "" }
-        expect(response).to render_template :_new_answer_comment #This should be refactored to one form.
+        expect(response).to render_template :_new_question_comment
       end
     end
   end

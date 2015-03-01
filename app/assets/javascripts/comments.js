@@ -17,6 +17,7 @@ $(document).ready(function() {
     request.done(function(response){
       console.log($(e.target).parent().prev())
       $(e.target).parent("div").prev().append(response)
+      $(e.target).parent("div").hide();
       $(".new_comment").each(function(){
         this.reset();
       })
