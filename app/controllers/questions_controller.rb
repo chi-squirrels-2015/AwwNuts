@@ -63,6 +63,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def temp
+    @question = Question.new(content: params[:content])
+    # render json: @question, locals: {question: @question}
+    render :_temp_question, locals: {question: @question}, layout: false
+  end
+
   private
 
   def question_params
