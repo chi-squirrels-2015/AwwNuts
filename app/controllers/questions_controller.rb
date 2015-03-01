@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
 
     if @question.save
       redirect_to question_path(@question)
+      flash[:success] = "Question Successfully Created!"
     else
       @error = @question.errors
       render :new
