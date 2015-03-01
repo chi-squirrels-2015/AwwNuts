@@ -41,8 +41,6 @@ $(document).ready(function() {
   $(".show-answer-comments").on("click", function(e){
     e.preventDefault();
 
-    console.log($(e.target).closest("div").find(".hide-answer-comments"))
-
     $(e.target).closest("div").next().show();
     $(e.target).closest(".show-answer-comments").hide();
     $(e.target).closest("div").find(".hide-answer-comments").show();

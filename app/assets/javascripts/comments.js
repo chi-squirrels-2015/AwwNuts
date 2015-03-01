@@ -3,25 +3,26 @@ $(document).ready(function() {
   $(".new_comment").on("submit", function(e){
     e.preventDefault();
 
-    var questionId = $(".new-comment-form-div").data("question-id");
-    var answerId = $(".new-comment-form-div").data("answer-id");
+
+    var path = $(".new_comment").attr("action")
 
     var request = $.ajax({
-      url: "/questions/" + questionId + "/answers/" + answerId + "/comments",
+      url: path,
       type: "POST",
       data: $(this).serialize()
     });
 
     request.done(function(response){
-      $(".comments").append(response)
+      console.log($(e.target).parent().prev())
+      $(e.target).parent("div").prev().append(response)
+      $(".new_comment").each(function(){
+        this.reset();
+      })
     });
   });
 
   $(".show-add-comment").on("click", function(e){
     e.preventDefault();
-
-    console.log($(e.target).closest("div"))
-
     $(e.target).closest("div").prev().toggle();
   });
 

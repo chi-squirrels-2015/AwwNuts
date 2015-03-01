@@ -27,13 +27,13 @@
 
     <div class="answer-comments col-md-12" style="display: none;">
      <div class="comments">
-       <% question.comments.each do |comment| %>
+       <% answer.comments.each do |comment| %>
         <%= render partial: "/comments/show", locals: { comment: comment } %>
       <% end %>
     </div>  
-    
+
     <div class="new-comment-form-div" data-answer-id=<%= answer.id %> data-question-id=<%= question.id %> style="display: none;">
-      <%= render partial: "/comments/new", locals: {question: question, answer: answer, comment: answer.comments.build } %>
+      <%= render partial: "/comments/new_answer_comment", locals: {question: question, answer: answer, comment: answer.comments.build } %>
     </div>
 
     <div class="add-comments">

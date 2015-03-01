@@ -1,7 +1,9 @@
 <h5>Your Comment</h5>
 <%= form_for [question, answer, comment] do |f| %>
   <div class="form-group">
-    
+    <p><%= f.hidden_field :commentable_type %></p>
+    <p><%= f.hidden_field :commentable_id %></p>
+
     <p><%= f.text_area :content, size: "50x5" %></p>
 
     <p><%= f.submit %></p>
