@@ -9,8 +9,8 @@
       <%= link_to "⇡", question_answer_upvote_path(question, answer), method: :post, remote: true, class: "upvote btn-xs btn-success" %>
       <%= link_to "⇣", question_answer_downvote_path(question, answer), method: :post, remote: true, class: "downvote btn-xs btn-danger" %>
       <% else %>
-      <%= link_to "⇡", "#", class: "btn-xs btn-default" %>
-      <%= link_to "⇣", "#", class: "btn-xs btn-default" %>
+      <%= link_to "⇡", "#", class: "btn-xs btn-default no-vote" %>
+      <%= link_to "⇣", "#", class: "btn-xs btn-default no-vote" %>
       <% end %>
     </div>
   </div>
