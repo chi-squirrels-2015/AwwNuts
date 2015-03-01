@@ -6,8 +6,8 @@
         <h3 class="panel-title">Most recent questions</h3>
       </div>
       <div class="panel-body text-center">
-        <% @user.questions.pluck(:title).last(5).each do |question| %>
-          <p><%= link_to question, question_path(question) %></p>
+        <% @user.questions.last(5).each do |question| %>
+          <p><%= link_to question.title, question_path(question) %></p>
         <% end %>
       </div>
     </div>
