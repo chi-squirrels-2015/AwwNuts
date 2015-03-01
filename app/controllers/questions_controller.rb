@@ -1,7 +1,12 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = Question.all
+    @questions = Question.paginate(page: params[:page], per_page: 10).order('created_at ASC')
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

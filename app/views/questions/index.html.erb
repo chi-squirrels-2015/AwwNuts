@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Recently Asked Questions:</h1>
+  <div class="all-questions">
   <% @questions.each do |question| %>
     <div class="col-sm-12 question-list-item">
       <div class="stats-horizontal">
@@ -17,4 +18,8 @@
       <span class="date"><%= time_ago_in_words(question.created_at) %> ago</span>
     </div>
   <% end %>
+  </div>
+  <div id="infinite-scrolling">
+    <%= will_paginate %>
+  </div>
 </div>
