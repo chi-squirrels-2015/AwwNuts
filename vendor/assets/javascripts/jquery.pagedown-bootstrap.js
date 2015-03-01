@@ -73,8 +73,8 @@
 			//Wrap the element with the needed html
 			$(this).wrap('<div class="wmd-panel" />');
 			$(this).before('<div id="wmd-button-bar-'+idAppend+'" class="wmd-button-bar" />');
-			$(this).after('<div id="wmd-preview-'+idAppend+'" class="wmd-preview" />');
-			$(this).addClass('wmd-input');
+			$(this).after('<div id="wmd-preview-'+idAppend+'" class="wmd-preview col-md-6" />');
+			$(this).addClass('wmd-input col-md-6');
 
 			//Setup help function
 			help = null;

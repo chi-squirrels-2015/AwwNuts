@@ -1,19 +1,18 @@
 <div class="row">
   <div class="col-md-8">
-    <div class="col-md-2">
-
-    </div>
+    <div class="col-md-2"></div>
       <div class="answer-form col-md-10" data-question-id=<%= question.id %>>
+      <% unless current_user.answers.find_by(question_id: question.id) %>
         <h3>Your Answer</h3>
-        <%= form_for [question, answer] do |f| %>
         <div class="answer-form-group" >
-          <p><%= f.text_area :content, id: "pagedownMe", size: "95x10" %></p>
+        <%= form_for [question, answer] do |f| %>
+          <p><%= f.text_area :content, id: "pagedownMe", size: "70x10" %></p>
         </div>
-
-        <div class="answer-form-group">
-          <%= f.submit %> <%= button_to "Show Preview", '#', :class => "button", :id => "preview", :method => :get  %>
+        <div class="col-md-12 btn btn-default">
+          <%= f.submit 'Submit Your Answer' %> 
         </div>
         <% end %>
+      <% end %>
       </div>
     </div>
   </div>
