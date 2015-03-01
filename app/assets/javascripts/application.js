@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require notify.min
+//= require jquery.pagedown-bootstrap.combined
+//= require jquery.pagedown-bootstrap.combined.min
+//= require jquery.pagedown-bootstrap
+//= require Markdown.Converter
+//= require Markdown.Editor
+//= require Markdown.Sanitizer
 //= require_tree .

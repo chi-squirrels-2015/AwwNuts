@@ -16,4 +16,9 @@ $(document).ready(function() {
   $(".downvote").bind("ajax:error", function(e, xhr, status, error) {
     alert("Sorry, unable to save your vote.");
   });
+
+  $(".no-vote").on("click", function(e){
+    e.preventDefault();
+    $(this).notify("Must be logged in to vote");
+  })
 });
