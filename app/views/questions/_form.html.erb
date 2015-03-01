@@ -6,6 +6,7 @@
 	<div class="question edit">
 		<%= form_for @question do |f| %>
 			<div class="form-group">
+				<%= render 'shared/error_messages' %>
 				<%= f.label :title %>
 				<%= f.text_field :title, class: "form-control" %>
 			</div>
