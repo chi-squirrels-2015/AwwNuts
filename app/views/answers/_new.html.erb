@@ -7,14 +7,19 @@
         <h3>Your Answer</h3>
         <%= form_for [question, answer] do |f| %>
         <div class="answer-form-group" >
-          <p><%= f.text_area :content, size: "95x10" %></p>
+          <p><%= f.text_area :content, id: "pagedownMe", size: "95x10" %></p>
         </div>
 
         <div class="answer-form-group">
-          <%= f.submit %>
+          <%= f.submit %> <%= button_to "Show Preview", '#', :class => "button", :id => "preview", :method => :get  %>
         </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+(function () {
+  $("textarea#pagedownMe").pagedownBootstrap();
+})();
+</script>
