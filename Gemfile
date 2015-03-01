@@ -35,6 +35,8 @@ gem 'faker'
 
 gem 'redcarpet'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   gem 'simplecov'
   gem 'rspec-rails'
@@ -48,3 +50,4 @@ group :development, :test do
   gem 'spring'
 end
 
+ruby "2.0.0"
