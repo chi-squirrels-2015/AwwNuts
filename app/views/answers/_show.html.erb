@@ -16,7 +16,7 @@
   </div>
 </div>
 <div class="col-md-10 answer-content">
-  <p><%= answer.content %></p>
+  <p><%= markdown answer.content %></p>
   <p><%= link_to answer.author.username, user_path(answer.author.id) %> - <%= time_ago_in_words(answer.created_at) %> ago</p>
 
   <div>
