@@ -1,18 +1,10 @@
 class CommentsController < ApplicationController
-  def new
-    @comment = Comment.new
-    render :_new_answer_comment #this should be refacorted to one form
-  end
-
   def create
     @comment = Comment.new(comment_params)
     @comment.author = User.find(current_user.id)
 
     if @comment.save
       render :_show, locals: { comment: @comment, comments: @comments }, layout: false
-    else
-      @error = @comment.errors
-      render :_new_answer_comment #need to add a conditional to check the commentable type and render the correct form
     end
   end
 
