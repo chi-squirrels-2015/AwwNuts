@@ -8,7 +8,7 @@ describe CommentsController do
 
 
   describe 'GET #new' do
-    context "when a comment is created on an answer" do
+    context "when a comment is created on an question" do
       it "creates a new, unsaved, comment" do
         get :new, question_id: 1
         expect(assigns(:comment)).to be_instance_of Comment
@@ -39,7 +39,7 @@ describe CommentsController do
         session[:user_id] = user.id
         allow(comment).to receive(:current_user).with(:user)
         post :create, question_id: 1, comment: { content: "" }
-        expect(response).to render_template :new
+        expect(response).to render_template :_new_answer_comment #This should be refactored to one form.
       end
     end
   end
@@ -76,7 +76,7 @@ describe CommentsController do
         session[:user_id] = user.id
         allow(comment).to receive(:current_user).with(:user)
         post :create, question_id: 1, answer_id: 1, comment: { content: "" }
-        expect(response).to render_template :new
+        expect(response).to render_template :_new_answer_comment #This should be refactored to one form.
       end
     end
   end

@@ -21,7 +21,7 @@
   padding-bottom: 5px;
   margin-bottom: 10px;
   border-top: 1px solid #333;
-  overflow: auto;
+  min-height: 120px;
 }
 
 .answer-content > .owner {
@@ -39,9 +39,18 @@
   border-top: 1px solid lightgrey;
 }
 
+.answer-form {
+  margin-top: 20px;
+  border-top: 1px solid lightgrey
+}
+
 .question-comments .comment-content {
   background: #EEE;
   border-top: 1px solid lightgrey;
+}
+
+.comments:first-child {
+  margin-top: 10px;
 }
 
 .navbar {
@@ -186,3 +195,27 @@ table.center {
   display: block;
   line-height: 20px;
 }
+
+.footer {
+  margin-top: 30px;
+  width: 100%;
+  height: 40px;
+  background: lightgrey;
+}
+
+.avatar {
+  margin-bottom: 5px;
+}
+
+.hide-show-comments {
+  float: right;
+}
+
+.add-comments {
+  display: block;
+  float: right;
+}
+
+/*.new-comment-form-div {
+  float: right;
+}*/
