@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'questions#index'
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
 
   resources :questions do
     resources :comments, only: [:new, :create]
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
 
-  get "/dashboard" => 'users#show'
+  get "/dashboard" => 'users#dashboard'
 
   get  "/login"  => 'sessions#new'
   post "/login"  => 'sessions#create'
