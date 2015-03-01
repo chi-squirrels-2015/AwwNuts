@@ -1,10 +1,15 @@
 <%= form_for @answer do |f| %>
   <div class="answer-form-group">
     <%= f.label :content %>
-    <%= f.text_area :content, size: "30x10" %>
+    <%= f.text_area :content, id: "pagedownMe", size: "30x10" %>
   </div>
 
   <div class="answer-form-group">
-    <%= f.submit %>
+    <%= f.submit %> <%= button_to "Show Preview", '#', :class => "button", :id => "preview", :method => :get  %>
   </div>
 <% end %>
+<script type="text/javascript">
+(function () {
+	$("textarea#pagedownMe").pagedownBootstrap();
+})();
+</script>

@@ -6,6 +6,7 @@
 	<div class="question edit">
 		<%= form_for @question do |f| %>
 			<div class="form-group">
+				<%= render 'shared/error_messages' %>
 				<%= f.label :title %>
 				<%= f.text_field :title, class: "form-control" %>
 			</div>
@@ -28,7 +29,7 @@
 					  <a href="#insert_code"			 id="add_code">			  CODE</a>
 					  <br />
 				</div>
-				<%= f.text_area :content, class: "form-control", rows: 30, cols: 80 %>
+				<%= f.text_area :content, class: "form-control", rows: 10, cols: 60 %>
 			</div>
 			<%= f.submit %>
 		<% end %>
