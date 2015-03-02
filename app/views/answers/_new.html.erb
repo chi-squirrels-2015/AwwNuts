@@ -2,15 +2,17 @@
   <div class="col-md-8">
     <div class="col-md-2"></div>
       <div class="answer-form col-md-10" data-question-id=<%= question.id %>>
-      <% unless current_user.answers.find_by(question_id: question.id) %>
-        <h3>Your Answer</h3>
-        <div class="answer-form-group" >
-        <%= form_for [question, answer] do |f| %>
-          <p><%= f.text_area :content, id: "pagedownMe", size: "70x10" %></p>
-        </div>
-        <div class="col-md-12 btn btn-default">
-          <%= f.submit 'Submit Your Answer' %> 
-        </div>
+      <% if logged_in? %>
+        <% unless current_user.answers.find_by(question_id: question.id) %>
+          <h3>Your Answer</h3>
+          <div class="answer-form-group" >
+          <%= form_for [question, answer] do |f| %>
+            <p><%= f.text_area :content, id: "pagedownMe", size: "70x10" %></p>
+          </div>
+          <div class="col-md-12 btn btn-default">
+            <%= f.submit 'Submit Your Answer' %>
+          </div>
+          <% end %>
         <% end %>
       <% end %>
       </div>
