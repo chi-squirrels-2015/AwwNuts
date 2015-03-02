@@ -46,17 +46,18 @@
             <% @question.comments.each do |comment| %>
             <div class="comment-content">
               <%= render partial: "/comments/show", locals: { comment: comment } %>
-            </div>   
+            </div>
             <% end %>
           </div>
 
           <div class="new-comment-form-div" data-question-id=<%= @question.id %> style="display: none;">
             <%= render partial: "/comments/new_question_comment", locals: {question: @question, comment: @question.comments.build } %>
           </div>
-
-          <div class="add-comments">
-            <%= link_to "Add Comment", "", class: "show-add-comment" %>
-          </div>
+          <% if logged_in? %>
+            <div class="add-comments">
+              <%= link_to "Add Comment", "", class: "show-add-comment" %>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>
