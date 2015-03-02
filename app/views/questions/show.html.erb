@@ -40,8 +40,10 @@
         <div class="question-content">
           <%= markdown @question.content %>
         </div>
-        <% if @question.author.id == current_user.id %>
-         <%= link_to "Edit", edit_question_path, class: "edit-question" %>
+        <% if logged_in? %>
+          <% if @question.author.id == current_user.id %>
+           <%= link_to "Edit", edit_question_path, class: "edit-question" %>
+          <% end %>
         <% end %>
 
         <%= link_to "Show Comments", "", class: "show-question-comments" %>
