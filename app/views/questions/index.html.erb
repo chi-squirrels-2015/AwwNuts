@@ -1,20 +1,11 @@
 <div class="container">
   <h1>Recently Asked Questions:</h1>
+  <div class="all-questions">
   <% @questions.each do |question| %>
-    <div class="col-sm-12 question-list-item">
-      <div class="stats-horizontal">
-        <div class="stat">
-          <span class="number"><%= question.answers.count %></span>answers
-        </div>
-        <div class="stat">
-          <span class="number"><%= question.comments.count %></span>comments
-        </div>
-        <div class="stat">
-          <span class="number"><%= question.vote_count %></span>votes
-        </div>
-      </div>
-      <h4><%= link_to question.title, question_path(question) %></h4>
-      <span class="date"><%= time_ago_in_words(question.created_at) %> ago</span>
-    </div>
-  <% end %>
+  <%= render partial: "question", locals: { question: question } %>
+  <% end %> 
+  </div>
+  <div id="infinite-scrolling">
+    <%= will_paginate %>
+  </div>
 </div>
