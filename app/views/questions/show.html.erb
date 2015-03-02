@@ -74,7 +74,15 @@
   </div>
   <% end %>
 
+<% if logged_in? %>
   <%= render partial: "/answers/new", locals: { question: @question, answer: @question.answers.build } %>
+  <% else %>
+  <div class="row">
+    <div class="col-md-3 col-md-offset-3 log-in-link">
+      <%= button_to "Log in to Answer Quesitons", login_path, class: "btn btn-primary", method: "get" %>
+    </div>
+  </div>
+   <% end %>
 </div>
 
 
