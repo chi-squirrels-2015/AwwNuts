@@ -241,3 +241,7 @@ table.center {
 #wmd-preview-0 {
   display: none;
 }
+
+.edit-question {
+  display: block;
+}
