@@ -9,6 +9,9 @@
       </div>
       <div class="question-heading col-md-11">
         <h1><%= @question.title.humanize %></h1>
+        <% if @question.updated_at > @question.created_at %>
+        <h5 class="text-muted">Edited <%= last_edited(@question) %> ago</h5>
+        <% end %>
         <h4><%= link_to @question.author.username, user_path(@question.author.id) %></h4>
       </div>
     </div>
@@ -37,9 +40,13 @@
         <div class="question-content">
           <%= markdown @question.content %>
         </div>
+        <% if @question.author.id == current_user.id %>
+         <%= link_to "Edit", edit_question_path, class: "edit-question" %>
+        <% end %>
 
         <%= link_to "Show Comments", "", class: "show-question-comments" %>
         <%= link_to "Hide Comments", "", class: "hide-question-comments", style: "display: none;" %>
+
 
         <div class="question-comments col-md-12" style="display: none;">
           <div class="comments">

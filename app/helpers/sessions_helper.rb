@@ -10,6 +10,12 @@ module SessionsHelper
     distance_of_time_in_words(start_time, end_time)
   end
 
+  def last_edited(question)
+    start_time = DateTime.now
+    end_time = question.updated_at
+    distance_of_time_in_words(start_time, end_time)
+  end
+
   # def activity_stream(user)
   #   activities = []
   #   Question.find(user).order_by(created_at)
