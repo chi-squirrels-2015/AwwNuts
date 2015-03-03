@@ -274,7 +274,7 @@ end
 (User.count * 5).times do
   Question.create(content: Faker::Lorem.paragraph,
                    author: User.all.sample,
-                    title: Faker::Commerce.product_name)
+                    title: Faker::Hacker.say_something_smart)
 end
 
 

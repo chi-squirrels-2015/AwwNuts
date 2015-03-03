@@ -1,9 +1,15 @@
 <div class="container">
+  <%= form_tag questions_path, method: :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", name: nil %>
+    </p>
+  <% end %>
   <h1>Recently Asked Questions:</h1>
   <div class="all-questions">
   <% @questions.each do |question| %>
   <%= render partial: "question", locals: { question: question } %>
-  <% end %> 
+  <% end %>
   </div>
   <div id="infinite-scrolling">
     <%= will_paginate %>

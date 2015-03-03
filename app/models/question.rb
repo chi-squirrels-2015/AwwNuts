@@ -9,6 +9,11 @@ class Question < ActiveRecord::Base
 
   validates :author, :title, :content, presence: true
 
+  searchable do
+    text :title, boost: 5.0
+    text :content
+  end
+
   def vote_count
     votes.pluck(:count).reduce(:+) || 0
   end

@@ -1,0 +1,4 @@
+<% search_results.each do |result| %>
+  <%=result%>
+  <p><%= link_to result.title, question_path(result) %></p>
+<% end %>

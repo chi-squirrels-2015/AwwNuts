@@ -248,6 +248,17 @@ table.center {
   display: block;
 }
 
+.search-results {
+  position: absolute;
+  width:500px;
+  z-index:100;
+  opacity: .6;
+  background: black;
+  color: white;
+
+/*  display: none;
+*/}
+
 textarea {
   resize: none;
 }
