@@ -6,8 +6,10 @@ class QuestionsController < ApplicationController
     else
       search = Question.search do
         fulltext params[:search]
+        paginate :page => params[:page], :per_page => 10
       end
       @questions = search.results
+
     end
     respond_to do |format|
       format.html
