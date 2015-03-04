@@ -35,6 +35,9 @@ gem 'faker'
 
 gem 'redcarpet'
 
+	# For Searchkick
+	gem 'searchkick'
+
 # For infinate scrolling
 gem 'will_paginate', '~> 3.0.5'
 gem 'betterlorem', '~> 0.1.2'
